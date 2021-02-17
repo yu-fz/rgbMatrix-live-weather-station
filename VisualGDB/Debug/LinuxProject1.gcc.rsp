@@ -1,0 +1,1 @@
+-I=/usr/include/GraphicsMagick -I../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include -I../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib -ggdb -O0 -DDEBUG=1 -DDEBUG=1 -ffunction-sections -fdata-sections -std=c++11   -c "LinuxProject1.cpp" -o "VisualGDB/Debug/LinuxProject1.o" -MD -MP -MF "VisualGDB/Debug/LinuxProject1.dep"

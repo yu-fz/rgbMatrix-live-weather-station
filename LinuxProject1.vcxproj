@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|VisualGDB">
+      <Configuration>Debug</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|VisualGDB">
+      <Configuration>Release</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{AEF2F62F-73FE-4F9C-9DF1-804C1E4537FA}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <GNUConfigurationType>Debug</GNUConfigurationType>
+    <ToolchainID>com.visualgdb.raspberry_pi</ToolchainID>
+    <ToolchainVersion>8.3.0/8.2.1/r3</ToolchainVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ToolchainID>com.visualgdb.raspberry_pi</ToolchainID>
+    <ToolchainVersion>8.3.0/8.2.1/r3</ToolchainVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <ClCompile>
+      <CPPLanguageStandard>CPP11</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>=/usr/include/GraphicsMagick;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions />
+      <CLanguageStandard />
+    </ClCompile>
+    <Link>
+      <LibrarySearchDirectories>%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
+      <AdditionalLibraryNames>pthread;boost_system;crypto;GraphicsMagick++;cpprest;GraphicsMagick</AdditionalLibraryNames>
+      <AdditionalLinkerInputs>%(Link.AdditionalLinkerInputs)</AdditionalLinkerInputs>
+      <LinkerScript />
+      <AdditionalOptions />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ClCompile>
+      <CPPLanguageStandard>CPP11</CPPLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\bdf-font.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\content-streamer.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\framebuffer.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\graphics.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.c" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\led-matrix-c.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\led-matrix.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\options-initialize.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\pixel-mapper.cc" />
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\thread.cc" />
+    <ClCompile Include="imageFileDict.cpp" />
+    <ClCompile Include="imageViewerUtilities.cpp" />
+    <ClCompile Include="LinuxProject1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\Makefile" />
+    <None Include="LinuxProject1-Debug.vgdbsettings" />
+    <None Include="LinuxProject1-Release.vgdbsettings" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\canvas.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\content-streamer.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\graphics.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\led-matrix-c.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\led-matrix.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\pixel-mapper.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\thread.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\threaded-canvas-manipulator.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\framebuffer-internal.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio-bits.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\imageViewerHelperFunctions.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers-internal.h" />
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h" />
+    <ClInclude Include="imageFileDictHeader.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
