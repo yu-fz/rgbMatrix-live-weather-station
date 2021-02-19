@@ -107,7 +107,7 @@
     </AdditionalGDBSettings>
     <LaunchGDBSettings xsi:type="GDBLaunchParametersNewInstance">
       <DebuggedProgram>$(TargetPath)</DebuggedProgram>
-      <GDBServerPort>2001</GDBServerPort>
+      <GDBServerPort>2004</GDBServerPort>
       <ProgramArguments />
       <ArgumentEscapingMode>Auto</ArgumentEscapingMode>
     </LaunchGDBSettings>

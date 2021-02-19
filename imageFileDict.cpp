@@ -61,6 +61,7 @@ vector<string> lookUpImageToDraw(vector<int>& weatherID)
 	weatherCodeDict.insert(pair<int, string>(804, "cloudy-3"));
 
 	vector<string> fileNames;
+	fileNames.clear();
 
 	for (auto i : weatherID)
 	{

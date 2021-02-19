@@ -115,8 +115,8 @@ void DisplayAnimation(const FileInfo* file,
 			const tmillis_t anim_delay_ms =
 				override_anim_delay >= 0 ? override_anim_delay : delay_us / 1000;
 			const tmillis_t start_wait_ms = GetTimeInMillis();
-			offscreen_canvas = matrix->SwapOnVSync(offscreen_canvas,
-			                                       file->params.vsync_multiple);
+			//offscreen_canvas = matrix->SwapOnVSync(offscreen_canvas,
+			//                                       file->params.vsync_multiple);
 			const tmillis_t time_already_spent = GetTimeInMillis() - start_wait_ms;
 			SleepMillis(anim_delay_ms - time_already_spent);
 		}
