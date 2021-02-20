@@ -18,7 +18,7 @@ void requestCurrentWeather::initializeVars()
 {
 	json::value openWeatherJSONResponse;
 	// Create http_client to send the request.
-	const string_t apiKey = U("2cad0f109bdc9bde64036cb481a0a493"); //apiKey
+	const string_t apiKey = U("---"); //apiKey
 	const string_t getRequestTempUnits = U("imperial"); //select units (standard/metric/imperial)
 
 	int currentTemperature = 0;
