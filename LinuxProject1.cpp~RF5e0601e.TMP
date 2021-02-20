@@ -25,6 +25,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <thread>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -42,13 +43,46 @@
 #include "graphics.h"
 #include "openWeatherData_Class.h"
 
+
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
 using rgb_matrix::RGBMatrix;
 
+//web stuff for API requests
+using namespace utility; // Common utilities like string conversions
+using namespace web; // Common features like URIs.
+using namespace http; // Common HTTP functionality
+using namespace client; // HTTP client features
+using namespace concurrency::streams; // Asynchronous streams
+
+//timer 
+using namespace std::chrono; // nanoseconds, system_clock, seconds
+using std::chrono::seconds;
+using std::chrono::system_clock;
+
+
+//std c++ namespaces
+using std::string;
+using std::pair;
+using std::vector;
+using std::thread;
+
+//method prototypes 
+//string selectImagesToDraw(vector<int>&, vector<long long>&, time_t counter, requestCurrentWeather ); // receives weather code and UNIX time 
+string getTemperatureToDisplay(int, int);
+//interrupt_received = false; //check if Ctrl+C has been pressed
+
+
 static void InterruptHandler(int signo)
 {
 	interrupt_received = true;
+}
+
+static tmillis_t GetTimeInMillis()
+{
+	struct timeval tp;
+	gettimeofday(&tp, nullptr);
+	return tp.tv_sec * 1000 + tp.tv_usec / 1000;
 }
 
 
@@ -303,10 +337,10 @@ int main(int argc, char* argv[])
 	RGBMatrix::Options canvasOptions;
 	RuntimeOptions runtimeOptions;
 	requestCurrentWeather currentWeather;
-	currentWeather.initializeVars();
 	currentWeather.getWeatherData();
 	initCanvasOptions(canvasOptions);
 	initRuntimeOptions(runtimeOptions);
+
 	RGBMatrix* Canvas = RGBMatrix::CreateFromOptions(canvasOptions, runtimeOptions);
 	FrameCanvas* offScreenCanvas = Canvas->CreateFrameCanvas();
 
@@ -402,6 +436,8 @@ int main(int argc, char* argv[])
 	uint frame_counter = 0;
 
 	bool do_center = true;
+	bool do_shuffle = false;
+
 	// We remember ImageParams for each image, which will change whenever
 	// there is a flag modifying them. This map keeps track of filenames
 	// and their image params (also for unrelated elements of argv[], but doesn't

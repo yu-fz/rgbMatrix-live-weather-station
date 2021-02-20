@@ -46,9 +46,33 @@ using namespace rgb_matrix;
 using rgb_matrix::Canvas;
 using rgb_matrix::RGBMatrix;
 
+
+
+
+
+
+//std c++ namespaces
+using std::string;
+using std::pair;
+using std::vector;
+using std::thread;
+
+//method prototypes 
+//string selectImagesToDraw(vector<int>&, vector<long long>&, time_t counter, requestCurrentWeather ); // receives weather code and UNIX time 
+string getTemperatureToDisplay(int, int);
+//interrupt_received = false; //check if Ctrl+C has been pressed
+
+
 static void InterruptHandler(int signo)
 {
 	interrupt_received = true;
+}
+
+static tmillis_t GetTimeInMillis()
+{
+	struct timeval tp;
+	gettimeofday(&tp, nullptr);
+	return tp.tv_sec * 1000 + tp.tv_usec / 1000;
 }
 
 

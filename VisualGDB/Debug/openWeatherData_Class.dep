@@ -1,61 +1,40 @@
-VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
+VisualGDB/Debug/openWeatherData_Class.o: openWeatherData_Class.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdc-predef.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/http_client.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/asyncrt_utils.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/basic_types.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/cpprest_compat.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/assert.h \
+ openWeatherData_Class.h \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib/imageViewerHelperFunctions.h \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/led-matrix.h \
+ c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdint.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdint.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libc-header-start.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/features.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/sys/cdefs.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/wordsize.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/long-double.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/gnu/stubs.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/gnu/stubs-hard.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/nosal.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/fstream \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/istream \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ios \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iosfwd \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/typesizes.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/wchar.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-intn.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-uintn.h \
+ c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stddef.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/string \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++config.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/os_defines.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/cpu_defines.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stringfwd.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/memoryfwd.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/postypes.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cwchar \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/wchar.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libc-header-start.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn-common.h \
- c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stddef.h \
- c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdarg.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/wchar.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/wint_t.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/mbstate_t.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__mbstate_t.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__FILE.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/FILE.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/locale_t.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__locale_t.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/exception \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_ptr.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_defines.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_init_exception.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/typeinfo \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/hash_bytes.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/new \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/nested_exception.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/move.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/concept_check.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/type_traits \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/char_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algobase.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/functexcept.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_defines.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cpp_type_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/type_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/numeric_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_pair.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/move.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/concept_check.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/type_traits \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_iterator_base_types.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_iterator_base_funcs.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/debug/assertions.h \
@@ -63,25 +42,50 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ptr_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/debug/debug.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/predefined_ops.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/postypes.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cwchar \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/wchar.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn-common.h \
+ c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdarg.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/wint_t.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/mbstate_t.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__mbstate_t.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__FILE.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/FILE.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/locale_t.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__locale_t.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cstdint \
- c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdint.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdint.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/typesizes.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-intn.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-uintn.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++allocator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/new_allocator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/new \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/exception \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_ptr.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_init_exception.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/typeinfo \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/hash_bytes.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/nested_exception.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/localefwd.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++locale.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/clocale \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/locale.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/locale.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iosfwd \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cctype \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/ctype.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/endian.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/endian.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/byteswap.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/uintn-identity.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ios_base.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream_insert.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_forced.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_function.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/binders.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/range_access.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/initializer_list \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/atomicity.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/gthr.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/gthr-default.h \
@@ -106,18 +110,6 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/pthreadtypes-arch.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/setjmp.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/atomic_word.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/string \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++allocator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/new_allocator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream_insert.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_forced.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_function.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/binders.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/range_access.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/initializer_list \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/alloc_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/alloc_traits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/string_conversions.h \
@@ -151,10 +143,133 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/error_t.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/functional_hash.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.tcc \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/vector \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_construct.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_uninitialized.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_vector.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_bvector.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/vector.tcc \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/canvas.h \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/thread.h \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/pixel-mapper.h \
+ ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/content-streamer.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdlib.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/sys/time.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cmath \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/math.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/math-vector.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libm-simd-decl-stubs.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/flt-eval-method.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-logb.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-fast.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-helper-functions.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-narrow.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/iscanonical.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\include.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_config.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\api.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\common.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_types.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\analyze.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\image.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\forward.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colorspace.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\error.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\log.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\timer.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\attribute.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\average.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\blob.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\cdl.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\channel.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color_lookup.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colormap.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\command.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compare.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\composite.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compress.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\confirm_access.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\constitute.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\decorate.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\delegate.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\deprecate.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\describe.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\draw.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\render.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\type.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\effect.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\enhance.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\fx.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gem.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\random.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gradient.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\hclut.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\list.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magic.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\memory.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\module.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\monitor.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\montage.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\operator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\paint.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_cache.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_iterator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\plasma.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\profile.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\quantize.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\registry.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resize.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resource.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\shear.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\signature.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\statistics.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\texture.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\transform.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\utility.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\version.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\image.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/list \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_list.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocated_ptr.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/aligned_buffer.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/list.tcc \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\blob.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\color.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\drawable.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/functional \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/tuple \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/utility \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_relops.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/array \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdexcept \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uses_allocator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/invoke.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/refwrap.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/std_function.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\geometry.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\exception.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\typemetric.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\pixels.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\stl.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/algorithm \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algo.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/algorithmfwd.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_heap.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tempbuf.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uniform_int_dist.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/limits \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iterator \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ostream \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ios \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ios_base.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.tcc \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/system_error \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/error_constants.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdexcept \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/streambuf \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/streambuf.tcc \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_ios.h \
@@ -167,9 +282,23 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/ctype_inline.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_facets.tcc \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_ios.tcc \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ostream \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream.tcc \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/istream \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/istream.tcc \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stream_iterator.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/map \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tree.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_map.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_multimap.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\coderinfo.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\montage.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/http_client.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/asyncrt_utils.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/basic_types.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/cpprest_compat.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/assert.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/nosal.h \
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/fstream \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/codecvt.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/basic_file.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++io.h \
@@ -179,7 +308,6 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/sstream.tcc \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/SafeInt3.hpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cstddef \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdlib.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxtasks.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplx.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxlinux.h \
@@ -210,44 +338,20 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/condition_variable \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/chrono \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ratio \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/limits \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ctime \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/parse_numbers.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/std_mutex.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/concurrence.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/unique_ptr.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/utility \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_relops.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/tuple \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/array \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uses_allocator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/invoke.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr_base.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocated_ptr.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/refwrap.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/aligned_buffer.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/mutex \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxinterface.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/memory \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_construct.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_uninitialized.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tempbuf.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_raw_storage_iter.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr_atomic.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/auto_ptr.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxcancellation_token.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/functional \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/std_function.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/algorithm \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algo.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/algorithmfwd.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_heap.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uniform_int_dist.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/vector \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_vector.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_bvector.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/vector.tcc \
  c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include-fixed/limits.h \
  c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include-fixed/syslimits.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/limits.h \
@@ -258,30 +362,14 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/xopen_lim.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/uio_lim.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/random \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cmath \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/math.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/math-vector.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libm-simd-decl-stubs.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/flt-eval-method.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-logb.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-fast.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-helper-functions.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-narrow.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/iscanonical.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/random.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/opt_random.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/random.tcc \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/numeric \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_numeric.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/sys/time.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/web_utilities.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/uri.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/base_uri.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/map \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tree.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_map.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_multimap.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/uri_builder.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/http_msg.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/containerstream.h \
@@ -291,8 +379,6 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/strings.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/math.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/streams.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iterator \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stream_iterator.h \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/queue \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/deque \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_deque.h \
@@ -1001,108 +1087,21 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detail/shutdown_op.hpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detail/write_op.hpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/filestream.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/thread \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\include.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_config.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\api.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\common.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_types.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\analyze.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\image.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\forward.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colorspace.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\error.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\log.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\timer.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\attribute.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\average.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\blob.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\cdl.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\channel.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color_lookup.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colormap.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\command.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compare.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\composite.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compress.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\confirm_access.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\constitute.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\decorate.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\delegate.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\deprecate.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\describe.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\draw.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\render.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\type.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\effect.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\enhance.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\fx.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gem.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\random.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gradient.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\hclut.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\list.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magic.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\memory.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\module.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\monitor.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\montage.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\operator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\paint.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_cache.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_iterator.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\plasma.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\profile.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\quantize.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\registry.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resize.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resource.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\shear.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\signature.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\statistics.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\texture.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\transform.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\utility.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\version.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\image.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/list \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_list.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/list.tcc \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\blob.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\color.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\drawable.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\geometry.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\exception.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\typemetric.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\pixels.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\stl.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\coderinfo.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\montage.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib/imageViewerHelperFunctions.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/led-matrix.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/canvas.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/thread.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/pixel-mapper.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/content-streamer.h \
- imageFileDictHeader.h \
- ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/graphics.h \
- openWeatherData_Class.h
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdc-predef.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/http_client.h:
+openWeatherData_Class.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/asyncrt_utils.h:
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib/imageViewerHelperFunctions.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/basic_types.h:
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/led-matrix.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/cpprest_compat.h:
+c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdint.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/assert.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdint.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libc-header-start.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/features.h:
 
@@ -1116,15 +1115,19 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/gnu/stubs-hard.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/nosal.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/fstream:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/typesizes.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/istream:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/wchar.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ios:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-intn.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iosfwd:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-uintn.h:
+
+c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stddef.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/string:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++config.h:
 
@@ -1136,67 +1139,13 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stringfwd.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/memoryfwd.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/postypes.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cwchar:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/wchar.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libc-header-start.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn-common.h:
-
-c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stddef.h:
-
-c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdarg.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/wchar.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/wint_t.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/mbstate_t.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__mbstate_t.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__FILE.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/FILE.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/locale_t.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__locale_t.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/exception:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_ptr.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_defines.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_init_exception.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/typeinfo:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/hash_bytes.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/new:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/nested_exception.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/move.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/concept_check.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/type_traits:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/char_traits.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algobase.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/functexcept.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_defines.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cpp_type_traits.h:
 
@@ -1205,6 +1154,12 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/type_traits.h:
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/numeric_traits.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_pair.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/move.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/concept_check.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/type_traits:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_iterator_base_types.h:
 
@@ -1220,19 +1175,55 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/debug/debug.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/predefined_ops.h:
 
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/postypes.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cwchar:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/wchar.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/floatn-common.h:
+
+c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdarg.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/wint_t.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/mbstate_t.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__mbstate_t.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__FILE.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/FILE.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/locale_t.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types/__locale_t.h:
+
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cstdint:
 
-c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include/stdint.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocator.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdint.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++allocator.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/types.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/new_allocator.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/typesizes.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/new:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-intn.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/exception:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/stdint-uintn.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/exception_ptr.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_init_exception.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/typeinfo:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/hash_bytes.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/nested_exception.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/localefwd.h:
 
@@ -1243,6 +1234,8 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/clocale:
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/locale.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/locale.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iosfwd:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cctype:
 
@@ -1256,7 +1249,19 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/uintn-identity.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ios_base.h:
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream_insert.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_forced.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_function.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/binders.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/range_access.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/initializer_list:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/atomicity.h:
 
@@ -1305,30 +1310,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/setjmp.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/atomic_word.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/string:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/c++allocator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/new_allocator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream_insert.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/cxxabi_forced.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_function.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/binders.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/range_access.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/initializer_list:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/alloc_traits.h:
 
@@ -1396,13 +1377,259 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/functional_hash.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_string.tcc:
 
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/vector:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_construct.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_uninitialized.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_vector.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_bvector.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/vector.tcc:
+
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/canvas.h:
+
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/thread.h:
+
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/pixel-mapper.h:
+
+../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/content-streamer.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdlib.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/sys/time.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cmath:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/math.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/math-vector.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libm-simd-decl-stubs.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/flt-eval-method.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-logb.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-fast.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-helper-functions.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-narrow.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/iscanonical.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\include.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_config.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\api.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\common.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_types.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\analyze.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\image.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\forward.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colorspace.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\error.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\log.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\timer.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\attribute.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\average.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\blob.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\cdl.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\channel.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color_lookup.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colormap.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\command.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compare.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\composite.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compress.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\confirm_access.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\constitute.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\decorate.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\delegate.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\deprecate.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\describe.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\draw.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\render.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\type.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\effect.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\enhance.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\fx.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gem.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\random.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gradient.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\hclut.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\list.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magic.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\memory.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\module.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\monitor.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\montage.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\operator.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\paint.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_cache.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_iterator.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\plasma.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\profile.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\quantize.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\registry.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resize.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resource.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\shear.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\signature.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\statistics.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\texture.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\transform.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\utility.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\version.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\image.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/list:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_list.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocated_ptr.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/aligned_buffer.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/list.tcc:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\blob.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\color.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\drawable.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/functional:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/tuple:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/utility:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_relops.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/array:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdexcept:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uses_allocator.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/invoke.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/refwrap.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/std_function.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\geometry.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\exception.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\typemetric.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\pixels.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\stl.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/algorithm:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algo.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/algorithmfwd.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_heap.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tempbuf.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uniform_int_dist.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/limits:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iterator:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ostream:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ios:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ios_base.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.h:
+
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_classes.tcc:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/system_error:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/error_constants.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdexcept:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/streambuf:
 
@@ -1428,11 +1655,39 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/locale_facets.tcc:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/basic_ios.tcc:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ostream:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/ostream.tcc:
 
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/istream:
+
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/istream.tcc:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stream_iterator.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/map:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tree.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_map.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_multimap.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\coderinfo.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\montage.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/http_client.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/asyncrt_utils.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/basic_types.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/cpprest_compat.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/assert.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/nosal.h:
+
+c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/fstream:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/codecvt.h:
 
@@ -1451,8 +1706,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/sstream.tcc:
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/SafeInt3.hpp:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cstddef:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/stdlib.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxtasks.h:
 
@@ -1514,8 +1767,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/chrono:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ratio:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/limits:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ctime:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/parse_numbers.h:
@@ -1526,39 +1777,15 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/concurrence.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/unique_ptr.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/utility:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_relops.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/tuple:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/array:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uses_allocator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/invoke.h:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr_base.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/allocated_ptr.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/refwrap.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/ext/aligned_buffer.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/mutex:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxinterface.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/memory:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_construct.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_uninitialized.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tempbuf.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_raw_storage_iter.h:
 
@@ -1567,28 +1794,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/shared_ptr_atomic.h:
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/backward/auto_ptr.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/pplx/pplxcancellation_token.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/functional:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/std_function.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/algorithm:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_algo.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/algorithmfwd.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_heap.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/uniform_int_dist.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/vector:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_vector.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_bvector.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/vector.tcc:
 
 c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\8\include-fixed/limits.h:
 
@@ -1610,28 +1815,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/random:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/cmath:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/math.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/math-vector.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/libm-simd-decl-stubs.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/flt-eval-method.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-logb.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/fp-fast.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-helper-functions.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/mathcalls-narrow.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/bits/iscanonical.h:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/random.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\arm-linux-gnueabihf\c++\8/bits/opt_random.h:
@@ -1642,21 +1825,11 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/numeric:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_numeric.h:
 
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf/sys/time.h:
-
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/web_utilities.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/uri.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/base_uri.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/map:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_tree.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_map.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_multimap.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/uri_builder.h:
 
@@ -1675,10 +1848,6 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/strings.h:
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/math.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/streams.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/iterator:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stream_iterator.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/queue:
 
@@ -3097,181 +3266,3 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detai
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/filestream.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/thread:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\include.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_config.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\api.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\common.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick_types.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\analyze.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\image.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\forward.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colorspace.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\error.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\log.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\timer.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\attribute.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\average.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\blob.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\cdl.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\channel.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\color_lookup.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\colormap.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\command.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compare.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\composite.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\compress.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\confirm_access.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\constitute.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\decorate.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\delegate.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\deprecate.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\describe.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\draw.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\render.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\type.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\effect.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\enhance.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\fx.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gem.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\random.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\gradient.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\hclut.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\list.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magic.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\magick.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\memory.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\module.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\monitor.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\montage.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\operator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\paint.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_cache.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\pixel_iterator.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\plasma.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\profile.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\quantize.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\registry.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resize.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\resource.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\shear.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\signature.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\statistics.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\texture.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\transform.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\utility.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick\version.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\image.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/list:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/stl_list.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\8/bits/list.tcc:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\blob.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\color.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\drawable.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\geometry.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\exception.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\typemetric.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\pixels.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\stl.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\coderinfo.h:
-
-c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\graphicsmagick\magick++\montage.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib/imageViewerHelperFunctions.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/led-matrix.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/canvas.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/thread.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/pixel-mapper.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/content-streamer.h:
-
-imageFileDictHeader.h:
-
-../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/graphics.h:
-
-openWeatherData_Class.h:
