@@ -196,7 +196,7 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	return imageFileToBeRendered;
 }
 
-vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offScreen, StreamWriter* globalStreamWriter,
+vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offScreen,
                                             requestCurrentWeather currentWeather)
 {
 	if (currentWeather.getLastImageRendered().c_str() != imageFile.c_str())
@@ -253,7 +253,7 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 			              delay_time_us,
 			              do_center,
 			              offScreen,
-			              globalStreamWriter ? globalStreamWriter : &out);
+			              &out);
 		}
 
 		if (file_info)
@@ -303,7 +303,6 @@ int main(int argc, char* argv[])
 	RGBMatrix::Options canvasOptions;
 	RuntimeOptions runtimeOptions;
 	requestCurrentWeather currentWeather;
-	currentWeather.initializeVars();
 	currentWeather.getWeatherData();
 	initCanvasOptions(canvasOptions);
 	initRuntimeOptions(runtimeOptions);
@@ -401,110 +400,12 @@ int main(int argc, char* argv[])
 
 	uint frame_counter = 0;
 
-	bool do_center = true;
-	// We remember ImageParams for each image, which will change whenever
-	// there is a flag modifying them. This map keeps track of filenames
-	// and their image params (also for unrelated elements of argv[], but doesn't
-	// matter).
-	// We map the pointer instad of the string of the argv parameter so that
-	// we can have two times the same image on the commandline list with different
-	// parameters.
-	std::map<const void*, struct ImageParams> filename_params;
-
-	// Set defaults.
-	ImageParams img_param;
-
-	filename_params[nullptr] = img_param;
-
-	const char* stream_output = nullptr;
-
-	// Prepare matrix
-
-	runtimeOptions.do_gpio_init = (stream_output == nullptr);
-
-	// These parameters are needed once we do scrolling.
-	const bool fill_width = false;
-	const bool fill_height = false;
-
-	// In case the output to stream is requested, set up the stream object.
-	StreamIO* stream_io = nullptr;
-	StreamWriter* global_stream_writer = nullptr;
-	if (stream_output)
-	{
-		int fd = open(stream_output, O_CREAT | O_WRONLY, 0644);
-		if (fd < 0)
-		{
-			perror("Couldn't open output stream");
-			return 1;
-		}
-		stream_io = new FileStreamIO(fd);
-		global_stream_writer = new StreamWriter(stream_io);
-	}
-
-	const tmillis_t start_load = GetTimeInMillis();
-	// Preparing all the images beforehand as the Pi might be too slow to
-	// be quickly switching between these. So preprocess.
-	std::vector<FileInfo*> file_imgs;
-	const char* filename = "./snow-2.png";
-	FileInfo* file_info = nullptr;
-	std::string err_msg;
-	std::vector<Magick::Image> image_sequence;
-
-	if (LoadImageAndScale(filename,
-	                      Canvas->width(),
-	                      Canvas->height(),
-	                      fill_width,
-	                      fill_height,
-	                      &image_sequence,
-	                      &err_msg))
-	{
-		file_info = new FileInfo();
-		file_info->params = filename_params[filename];
-		file_info->content_stream = new MemStreamIO();
-		file_info->is_multi_frame = false;
-
-		StreamWriter out(file_info->content_stream);
-
-		const Magick::Image& img = image_sequence[0];
-		int64_t delay_time_us;
-
-		delay_time_us = file_info->params.wait_ms * 1000; // single image.
-
-		if (delay_time_us <= 0) delay_time_us = 100 * 1000; // 1/10sec
-
-		StoreInStream(img,
-		              delay_time_us,
-		              do_center,
-		              offScreenCanvas,
-		              global_stream_writer ? global_stream_writer : &out);
-	}
-
-
-	if (file_info)
-	{
-		file_imgs.push_back(file_info);
-	}
-	else
-	{
+	/*
 		fprintf(stderr,
-		        "%s skipped: Unable to open (%s)\n",
-		        filename,
-		        err_msg.c_str());
-	}
+		        "Loading took %.3fs; now: Display.\n",
+		        (GetTimeInMillis() - start_load) / 1000.0);
+	*/
 
-	// Some parameter sanity adjustments.
-	if (file_imgs.empty())
-	{
-		// e.g. if all files could not be interpreted as image.
-		fprintf(stderr, "No image could be loaded.\n");
-		return 1;
-	}
-
-	fprintf(stderr,
-	        "Loading took %.3fs; now: Display.\n",
-	        (GetTimeInMillis() - start_load) / 1000.0);
-
-	currentWeather.setLastFile_Img(file_imgs);
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
 
@@ -515,7 +416,7 @@ int main(int argc, char* argv[])
 	string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
 	                                      *currentWeather.getTimeArray(),
 	                                      currentWeather, rng);
-	file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, global_stream_writer, currentWeather);
+	vector<FileInfo*> file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, currentWeather);
 	currentTemp = currentWeather.getCurrentTemperature();
 	currentWindSpeed = currentWeather.getWindSpeed();
 	time_t timeNow_image = time(nullptr);
@@ -534,7 +435,7 @@ int main(int argc, char* argv[])
 			string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
 			                                      *currentWeather.getTimeArray(),
 			                                      currentWeather, rng);
-			file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, global_stream_writer, currentWeather);
+			file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, currentWeather);
 			currentWeather.getWeatherData();
 			currentTemp = currentWeather.getCurrentTemperature();
 			currentWindSpeed = currentWeather.getWindSpeed();

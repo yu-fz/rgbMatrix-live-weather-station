@@ -14,32 +14,6 @@ tmillis_t GetTimeInMillis()
 }
 
 
-void requestCurrentWeather::initializeVars()
-{
-	json::value openWeatherJSONResponse;
-	// Create http_client to send the request.
-	const string_t apiKey = U("---"); //apiKey
-	const string_t getRequestTempUnits = U("imperial"); //select units (standard/metric/imperial)
-
-	int currentTemperature = 0;
-	std::vector<int> arrayOfWeatherIDs = {721};
-	std::vector<int>* arrayOfWeatherIDsRef = &arrayOfWeatherIDs;
-	std::vector<long long> arrayOfTimes = {100, 200, 300};
-	std::vector<long long>* arrayOfTimesRef = &arrayOfTimes;
-
-	std::vector<FileInfo*> file_imgs;
-	int windSpeed = 0;
-	int feelsLikeTemp = 0;
-
-	time_t counter = time(nullptr);
-
-	time_t timeout = 30;
-
-	string lastImageRenderedName;
-
-	vector<string> imageRenderList = {"./snow-2.png"};
-}
-
 int requestCurrentWeather::getWeatherData()
 {
 	try
