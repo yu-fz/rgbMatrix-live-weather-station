@@ -21,7 +21,7 @@ int requestCurrentWeather::getWeatherData()
 		// Build request URI and start the request.
 		http_client client(U("http://api.openweathermap.org/data/2.5/weather?"));
 		uri_builder builder;
-		builder.append_query(U("id"), 5128581);
+		builder.append_query(U("zip"), "11365,us");
 		builder.append_query(U("appid"), apiKey);
 		builder.append_query(U("units"), getRequestTempUnits);
 		return client.request(methods::GET, builder.to_string())
@@ -138,4 +138,20 @@ void requestCurrentWeather::setLastFile_Img(vector<FileInfo*> file)
 vector<FileInfo*> requestCurrentWeather::getLastFile_Img()
 {
 	return file_imgs;
+}
+
+void requestCurrentWeather::initOpenWeatherOptions(weatherAPIOptions* initWeatherOptions)
+{
+	apiKey = initWeatherOptions->apiKey;
+	getRequestTempUnits = initWeatherOptions->getRequestTempUnits;
+	currentTemperature = initWeatherOptions->currentTemperature;
+	arrayOfWeatherIDs = initWeatherOptions->arrayOfWeatherIDs;
+	arrayOfTimes = initWeatherOptions->arrayOfTimes;
+	file_imgs = initWeatherOptions->file_imgs;
+	windSpeed = initWeatherOptions->windSpeed;
+	feelsLikeTemp = initWeatherOptions->feelsLikeTemp;
+	counter = initWeatherOptions->counter;
+	timeout = initWeatherOptions->timeout;
+	lastImageRenderedName = initWeatherOptions->lastImageRenderedName;
+	imageRenderList = initWeatherOptions->imageRenderList;
 }

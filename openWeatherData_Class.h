@@ -6,6 +6,7 @@
 #include <cpprest/filestream.h>
 #include <vector>
 #include <unistd.h>
+#include "weatherAPIOptionSetup.h"
 
 //web stuff for API requests
 using namespace utility; // Common utilities like string conversions
@@ -31,24 +32,24 @@ class requestCurrentWeather
 private:
 	json::value openWeatherJSONResponse;
 	// Create http_client to send the request.
-	const string_t apiKey = U("2cad0f109bdc9bde64036cb481a0a493"); //apiKey
-	const string_t getRequestTempUnits = U("imperial"); //select units (standard/metric/imperial)
-	int currentTemperature = 0;
-	std::vector<int> arrayOfWeatherIDs = {721};
+	string_t apiKey; //apiKey
+	string_t getRequestTempUnits;
+	int currentTemperature;
+	std::vector<int> arrayOfWeatherIDs;
 	std::vector<int>* arrayOfWeatherIDsRef = &arrayOfWeatherIDs;
-	std::vector<long long> arrayOfTimes = {100, 200, 300};
+	std::vector<long long> arrayOfTimes;
 	std::vector<long long>* arrayOfTimesRef = &arrayOfTimes;
 
 	std::vector<FileInfo*> file_imgs;
-	int windSpeed = 0;
-	int feelsLikeTemp = 0;
+	int windSpeed;
+	int feelsLikeTemp;
 
-	time_t counter = time(nullptr);
+	time_t counter;
 
-	time_t timeout = 30;
+	time_t timeout;
 
 	string lastImageRenderedName;
-	vector<string> imageRenderList = {"./snow-2.png"};
+	vector<string> imageRenderList;
 
 public:
 
@@ -92,4 +93,6 @@ public:
 	void setLastFile_Img(vector<FileInfo*> file);
 
 	vector<FileInfo*> getLastFile_Img();
+
+	void initOpenWeatherOptions(weatherAPIOptions* initWeatherOptions);
 };

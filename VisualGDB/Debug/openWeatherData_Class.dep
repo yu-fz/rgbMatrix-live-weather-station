@@ -1087,7 +1087,8 @@ VisualGDB/Debug/openWeatherData_Class.o: openWeatherData_Class.cpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detail/shutdown_op.hpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detail/write_op.hpp \
  c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/filestream.h \
- c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h
+ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h \
+ weatherAPIOptionSetup.h
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdc-predef.h:
 
@@ -3266,3 +3267,5 @@ c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/boost/asio/ssl/detai
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/filestream.h:
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/cpprest/details/fileio.h:
+
+weatherAPIOptionSetup.h:

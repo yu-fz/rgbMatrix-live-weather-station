@@ -67,6 +67,9 @@
     <ClCompile Include="openWeatherData_Class.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="weatherAPIOptionSetup.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="LinuxProject1-Debug.vgdbsettings">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="openWeatherData_Class.h">
       <Filter>Source files</Filter>
+    </ClInclude>
+    <ClInclude Include="weatherAPIOptionSetup.h">
+      <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

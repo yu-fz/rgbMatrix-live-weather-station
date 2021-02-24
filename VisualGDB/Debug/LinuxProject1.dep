@@ -1090,7 +1090,7 @@ VisualGDB/Debug/LinuxProject1.o: LinuxProject1.cpp \
  ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/content-streamer.h \
  imageFileDictHeader.h \
  ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/graphics.h \
- openWeatherData_Class.h
+ openWeatherData_Class.h weatherAPIOptionSetup.h
 
 c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include/stdc-predef.h:
 
@@ -3275,3 +3275,5 @@ imageFileDictHeader.h:
 ../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include/graphics.h:
 
 openWeatherData_Class.h:
+
+weatherAPIOptionSetup.h:

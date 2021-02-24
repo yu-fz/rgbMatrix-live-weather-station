@@ -72,6 +72,7 @@
     <ClCompile Include="imageViewerUtilities.cpp" />
     <ClCompile Include="LinuxProject1.cpp" />
     <ClCompile Include="openWeatherData_Class.cpp" />
+    <ClCompile Include="weatherAPIOptionSetup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\Makefile" />
@@ -96,6 +97,7 @@
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h" />
     <ClInclude Include="imageFileDictHeader.h" />
     <ClInclude Include="openWeatherData_Class.h" />
+    <ClInclude Include="weatherAPIOptionSetup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

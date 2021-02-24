@@ -21,7 +21,6 @@
 
 #include <cpprest/http_client.h>
 #include <cpprest/filestream.h>
-#include <cpprest/json.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <stdio.h>
@@ -41,6 +40,7 @@
 #include "imageFileDictHeader.h"
 #include "graphics.h"
 #include "openWeatherData_Class.h"
+#include "weatherAPIOptionSetup.h"
 
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
@@ -106,13 +106,16 @@ static void add_micros(struct timespec* accumulator, long micros)
 }
 
 //Gets the necessary string to display on the bottom of the matrix
-string getTemperatureToDisplay(int temp, int windSpeed)
+string getTemperatureToDisplay(int temp, int windSpeed, int feelsLikeTemp)
 {
 	string temperature_str = std::to_string(temp);
 	string windSpeed_str = std::to_string(windSpeed);
+	string feelsLikeTemp_str = std::to_string(feelsLikeTemp);
 	string a = "Current Temp: ";
 	string b = "Windspeed: ";
-	string output = a.append(temperature_str).append("F").append("  ").append(b).append(windSpeed_str).append("mph");
+	string c = "Feels Like: ";
+	string output = a.append(temperature_str).append("F").append("  ").append(b).append(windSpeed_str).append("mph").
+	                  append("  ").append(c).append(feelsLikeTemp_str).append("F");
 
 	return output;
 }
@@ -303,6 +306,10 @@ int main(int argc, char* argv[])
 	RGBMatrix::Options canvasOptions;
 	RuntimeOptions runtimeOptions;
 	requestCurrentWeather currentWeather;
+
+	weatherAPIOptions* initWeatherOptions = new weatherAPIOptions();
+	initWeatherAPIOptions(initWeatherOptions);
+	currentWeather.initOpenWeatherOptions(initWeatherOptions);
 	currentWeather.getWeatherData();
 	initCanvasOptions(canvasOptions);
 	initRuntimeOptions(runtimeOptions);
@@ -323,6 +330,7 @@ int main(int argc, char* argv[])
 	const char* bdf_font_file = "./spleen-5x8.bdf";
 	//currentWeather.getWeatherData();
 	int currentTemp = 0;
+	int currentFeelsLikeTemp = 0;
 	int currentWindSpeed = 0;
 	std::string line = "loading...";
 	bool xorigin_configured = false;
@@ -419,10 +427,11 @@ int main(int argc, char* argv[])
 	vector<FileInfo*> file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, currentWeather);
 	currentTemp = currentWeather.getCurrentTemperature();
 	currentWindSpeed = currentWeather.getWindSpeed();
+	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
 	do
 	{
-		line = getTemperatureToDisplay(currentTemp, currentWindSpeed);
+		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
 		const bool draw_on_frame = (blink_on <= 0)
@@ -439,6 +448,7 @@ int main(int argc, char* argv[])
 			currentWeather.getWeatherData();
 			currentTemp = currentWeather.getCurrentTemperature();
 			currentWindSpeed = currentWeather.getWindSpeed();
+			currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 		}
 
 		if (draw_on_frame)
