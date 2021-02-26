@@ -42,6 +42,7 @@
 #include "openWeatherData_Class.h"
 #include "weatherAPIOptionSetup.h"
 
+
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
 using rgb_matrix::RGBMatrix;

@@ -125,16 +125,16 @@
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\imageViewerHelperFunctions.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="imageFileDictHeader.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="openWeatherData_Class.h">
-      <Filter>Source files</Filter>
-    </ClInclude>
     <ClInclude Include="weatherAPIOptionSetup.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="openWeatherData_Class.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="imageViewerHelperFunctions.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

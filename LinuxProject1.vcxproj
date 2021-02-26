@@ -37,14 +37,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <ClCompile>
       <CPPLanguageStandard>CPP11</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>=/usr/include/GraphicsMagick;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/lib;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CLanguageStandard />
+      <AdditionalIncludeDirectories>=/usr/include/GraphicsMagick;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <LibrarySearchDirectories>%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
-      <AdditionalLibraryNames>pthread;boost_system;crypto;GraphicsMagick++;cpprest;GraphicsMagick</AdditionalLibraryNames>
+      <AdditionalLibraryNames>pthread;boost_system;crypto;GraphicsMagick++;cpprest;GraphicsMagick;%(Link.AdditionalLibraryNames)</AdditionalLibraryNames>
       <AdditionalLinkerInputs>%(Link.AdditionalLinkerInputs)</AdditionalLinkerInputs>
       <LinkerScript />
       <AdditionalOptions />
@@ -53,6 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
       <CPPLanguageStandard>CPP11</CPPLanguageStandard>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -92,10 +93,13 @@
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio-bits.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.h" />
-    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\imageViewerHelperFunctions.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers-internal.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h" />
     <ClInclude Include="imageFileDictHeader.h" />
+    <ClInclude Include="imageViewerHelperFunctions.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="openWeatherData_Class.h" />
     <ClInclude Include="weatherAPIOptionSetup.h" />
   </ItemGroup>

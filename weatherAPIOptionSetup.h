@@ -3,7 +3,7 @@
 #include <cpprest/details/basic_types.h>
 
 #include "imageViewerHelperFunctions.h"
-//#include "openWeatherData_Class.h"
+#include "openWeatherData_Class.h"
 
 struct weatherAPIOptions
 {

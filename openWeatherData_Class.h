@@ -1,13 +1,11 @@
 #pragma once
 
-
 #include "imageViewerHelperFunctions.h"
+#include "weatherAPIOptionSetup.h"
 #include <cpprest/http_client.h>
-#include <cpprest/filestream.h>
 #include <vector>
 #include <unistd.h>
-#include "weatherAPIOptionSetup.h"
-
+#include <sys/time.h>
 //web stuff for API requests
 using namespace utility; // Common utilities like string conversions
 using namespace web; // Common features like URIs.
