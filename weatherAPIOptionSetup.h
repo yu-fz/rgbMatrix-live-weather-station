@@ -1,14 +1,14 @@
 #pragma once
 #include <vector>
 #include <cpprest/details/basic_types.h>
-
 #include "imageViewerHelperFunctions.h"
-#include "openWeatherData_Class.h"
+
+using utility::string_t;
 
 struct weatherAPIOptions
 {
-	utility::string_t apiKey; // API key generated from openweather.org to make calls 
-	utility::string_t getRequestTempUnits; //select units (standard/metric/imperial)
+	string_t apiKey; // API key generated from openweather.org to make calls 
+	string_t getRequestTempUnits; //select units (standard/metric/imperial)
 	int currentTemperature;
 	std::vector<int> arrayOfWeatherIDs;
 	std::vector<long long> arrayOfTimes;

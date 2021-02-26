@@ -35,12 +35,13 @@
 #include <string>
 #include <Magick++.h>
 
+
 #include <magick/image.h>
-#include  "imageViewerHelperFunctions.h"
 #include "imageFileDictHeader.h"
 #include "graphics.h"
 #include "openWeatherData_Class.h"
 #include "weatherAPIOptionSetup.h"
+#include "imageViewerHelperFunctions.h"
 
 
 using namespace rgb_matrix;

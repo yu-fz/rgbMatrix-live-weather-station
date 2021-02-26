@@ -3,13 +3,12 @@
 #include "led-matrix.h"
 #include "content-streamer.h"
 #include <Magick++.h>
-#include "openWeatherData_Class.h"
+#include <sys/time.h>
+#include <random>
 
 typedef int64_t tmillis_t;
 extern tmillis_t distant_future;
 extern volatile bool interrupt_received;
-//used for timing animations
-//extern tmillis_t; // that is a while.
 
 //RGB Matrix File Stream stuff
 using rgb_matrix::RGBMatrix;
@@ -47,6 +46,7 @@ struct ImageParams
 	int loops;
 	int vsync_multiple;
 };
+
 
 struct FileInfo
 {
