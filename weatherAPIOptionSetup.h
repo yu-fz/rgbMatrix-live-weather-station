@@ -10,6 +10,7 @@ struct weatherAPIOptions
 {
 	string_t apiKey; // API key generated from openweather.org to make calls 
 	string_t getRequestTempUnits; //select units (standard/metric/imperial)
+	string_t location;
 	int currentTemperature;
 	std::vector<int> arrayOfWeatherIDs;
 	std::vector<long long> arrayOfTimes;

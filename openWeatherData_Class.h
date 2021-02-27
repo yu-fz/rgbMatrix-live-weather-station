@@ -33,6 +33,7 @@ private:
 	// Create http_client to send the request.
 	string_t apiKey; //apiKey
 	string_t getRequestTempUnits;
+	string_t location;
 	int currentTemperature;
 	std::vector<int> arrayOfWeatherIDs;
 	std::vector<int>* arrayOfWeatherIDsRef = &arrayOfWeatherIDs;

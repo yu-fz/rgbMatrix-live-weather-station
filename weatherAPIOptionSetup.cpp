@@ -22,6 +22,7 @@ void initWeatherAPIOptions(weatherAPIOptions* initWeatherOptions)
 	}
 	initWeatherOptions->apiKey = apiKey;
 	initWeatherOptions->getRequestTempUnits = units;
+	initWeatherOptions->location = location;
 	initWeatherOptions->currentTemperature = 0;
 	initWeatherOptions->arrayOfWeatherIDs = {};
 	initWeatherOptions->arrayOfTimes = {};

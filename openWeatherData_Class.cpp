@@ -21,7 +21,7 @@ int requestCurrentWeather::getWeatherData()
 		// Build request URI and start the request.
 		http_client client(U("http://api.openweathermap.org/data/2.5/weather?"));
 		uri_builder builder;
-		builder.append_query(U("zip"), "11365,us");
+		builder.append_query(U("zip"), location);
 		builder.append_query(U("appid"), apiKey);
 		builder.append_query(U("units"), getRequestTempUnits);
 		return client.request(methods::GET, builder.to_string())
@@ -144,6 +144,7 @@ void requestCurrentWeather::initOpenWeatherOptions(weatherAPIOptions* initWeathe
 {
 	apiKey = initWeatherOptions->apiKey;
 	getRequestTempUnits = initWeatherOptions->getRequestTempUnits;
+	location = initWeatherOptions->location;
 	currentTemperature = initWeatherOptions->currentTemperature;
 	arrayOfWeatherIDs = initWeatherOptions->arrayOfWeatherIDs;
 	arrayOfTimes = initWeatherOptions->arrayOfTimes;
