@@ -519,7 +519,5 @@ int main(int argc, char* argv[])
 	// Animation finished. Shut down the RGB matrix.
 	Canvas->Clear();
 	delete Canvas;
-
-
 	return 0;
 }
