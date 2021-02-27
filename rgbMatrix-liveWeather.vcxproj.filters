@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{23b78c3d-bc6e-4e74-a142-fa153432bfad}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{355452c5-0c93-4b34-84bd-94694afa3073}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{272ed54f-0a3f-4cf4-b769-7b260f136933}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{6f48b3e4-8331-498e-bcb1-a16e7ac4ba50}</UniqueIdentifier>
+      <Extensions>vgdbsettings</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\bdf-font.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\content-streamer.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\framebuffer.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\graphics.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.c">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\led-matrix-c.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\led-matrix.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\options-initialize.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\pixel-mapper.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\thread.cc">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="imageViewerUtilities.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="imageFileDict.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="openWeatherData_Class.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="weatherAPIOptionSetup.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="rgbMatrix-liveWeather.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rgbMatrix-liveWeather-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="rgbMatrix-liveWeather-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\Makefile">
+      <Filter>Source files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\canvas.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\content-streamer.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\graphics.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\led-matrix-c.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\led-matrix.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\pixel-mapper.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\thread.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\include\threaded-canvas-manipulator.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\framebuffer-internal.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio-bits.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\gpio.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers-internal.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="imageFileDictHeader.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="weatherAPIOptionSetup.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="openWeatherData_Class.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="imageViewerHelperFunctions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
