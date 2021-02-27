@@ -451,7 +451,7 @@ int main(int argc, char* argv[])
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
 
-	time_t timeOut = 15;
+	time_t timeOut = 120;
 	std::random_device randDevice{};
 	auto rng = std::default_random_engine{randDevice()};
 
@@ -465,7 +465,6 @@ int main(int argc, char* argv[])
 	time_t timeNow_image = time(nullptr);
 	do
 	{
-		setBrightness(Canvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -476,6 +475,7 @@ int main(int argc, char* argv[])
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);
+			setBrightness(Canvas);
 			string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
 			                                      *currentWeather.getTimeArray(),
 			                                      currentWeather, rng);
