@@ -3,6 +3,7 @@
 #include <cpprest/details/basic_types.h>
 #include "imageViewerHelperFunctions.h"
 
+
 using utility::string_t;
 
 struct weatherAPIOptions

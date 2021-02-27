@@ -3,8 +3,25 @@
 
 void initWeatherAPIOptions(weatherAPIOptions* initWeatherOptions)
 {
-	initWeatherOptions->apiKey = U("2cad0f109bdc9bde64036cb481a0a493");
-	initWeatherOptions->getRequestTempUnits = U("imperial");
+	std::ifstream keyFile;
+	string_t apiKey;
+	string_t units;
+	string_t location;
+
+	keyFile.open("apiConfig.txt");
+	if (keyFile.is_open())
+	{
+		std::getline(keyFile, apiKey);
+		std::getline(keyFile, units);
+		std::getline(keyFile, location);
+	}
+	else
+	{
+		std::cout << "api key file does not exist";
+		exit(1);
+	}
+	initWeatherOptions->apiKey = apiKey;
+	initWeatherOptions->getRequestTempUnits = units;
 	initWeatherOptions->currentTemperature = 0;
 	initWeatherOptions->arrayOfWeatherIDs = {};
 	initWeatherOptions->arrayOfTimes = {};
