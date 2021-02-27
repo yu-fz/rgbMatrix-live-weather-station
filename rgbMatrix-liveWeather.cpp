@@ -19,6 +19,16 @@
 // Then compile with
 // $ make led-image-viewer
 
+/* TODO 
+	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise 
+	add stonk tracker
+	make weather icons look prettier
+	center weather icons better
+	make it easier to change text scrolling color
+	Display error icon when API calls fail 
+*/
+
+
 #include <cpprest/http_client.h>
 #include <cpprest/filestream.h>
 #include <fcntl.h>
@@ -135,9 +145,15 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	vector<string> imageRenderList = weather.getImageRenderList();
 	string imageFilePath;
 	string imageFileToBeRendered;
+	string errorIconFile = "./error_icon.png";
 
-	//std::wcout << "length of filesToDraw " << filesToDraw.size();
-	//imageRenderList.clear();
+	if (!imageRenderList.empty() && (std::find(imageRenderList.begin(), imageRenderList.end(), errorIconFile) !=
+		imageRenderList.end()))
+	{
+		imageFileToBeRendered = errorIconFile;
+		return imageFileToBeRendered;
+	}
+
 	if (!filesToDraw.empty() && (filesToDraw != imageRenderList))
 	{
 		weather.clearImageRenderList();
@@ -300,6 +316,23 @@ static bool FullSaturation(const Color& c)
 		&& (c.b == 0 || c.b == 255);
 }
 
+void setBrightness(RGBMatrix* Canvas)
+{
+	time_t timeNow = time(nullptr);
+	struct tm* currentTime = localtime(&timeNow);
+	int hour = currentTime->tm_hour;
+	uint8_t lowBrightness = 10;
+	uint8_t highBrightness = 100;
+	if ((hour >= 0) && (hour <= 5))
+	{
+		Canvas->SetBrightness(lowBrightness);
+	}
+	else
+	{
+		Canvas->SetBrightness(highBrightness);
+	}
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -359,8 +392,8 @@ int main(int argc, char* argv[])
 	}
 
 	/*
-	* Load font. This needs to be a filename with a bdf bitmap font.
-	*/
+* Load font. This needs to be a filename with a bdf bitmap font.
+*/
 	Font font;
 	if (!font.LoadFont(bdf_font_file))
 	{
@@ -405,21 +438,20 @@ int main(int argc, char* argv[])
 	int x = x_orig;
 	int y = y_orig;
 	int length = 0;
-
 	struct timespec next_frame = {0, 0};
 
 	uint frame_counter = 0;
 
 	/*
-		fprintf(stderr,
-		        "Loading took %.3fs; now: Display.\n",
-		        (GetTimeInMillis() - start_load) / 1000.0);
-	*/
+	fprintf(stderr,
+	        "Loading took %.3fs; now: Display.\n",
+	        (GetTimeInMillis() - start_load) / 1000.0);
+*/
 
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
 
-	time_t timeOut = 120;
+	time_t timeOut = 15;
 	std::random_device randDevice{};
 	auto rng = std::default_random_engine{randDevice()};
 
@@ -433,6 +465,7 @@ int main(int argc, char* argv[])
 	time_t timeNow_image = time(nullptr);
 	do
 	{
+		setBrightness(Canvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -509,6 +542,7 @@ int main(int argc, char* argv[])
 		// Swap the offscreen_canvas with canvas on vsync, avoids flickering
 		offScreenCanvas = Canvas->SwapOnVSync(offScreenCanvas);
 		if (speed <= 0) pause(); // Nothing to scroll.
+		usleep(16666);
 	}
 	while (do_forever && !interrupt_received);
 
