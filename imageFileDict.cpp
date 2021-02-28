@@ -3,7 +3,7 @@
 //dict to look match weather codes to image file names 
 vector<string> lookUpImageToDraw(vector<int>& weatherID)
 {
-	std::map<int, string> weatherCodeDict;
+	std::unordered_map<int, string> weatherCodeDict;
 	weatherCodeDict.insert(pair<int, string>(200, "tStorm-1"));
 	weatherCodeDict.insert(pair<int, string>(201, "tStorm-7"));
 	weatherCodeDict.insert(pair<int, string>(202, "tStorm-8"));

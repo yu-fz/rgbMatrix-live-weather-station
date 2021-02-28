@@ -23,8 +23,9 @@
 	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise ✅
 	add stonk tracker
 	make weather icons look prettier 
-	center weather icons better
+	center weather icons better ✅
 	make it easier to change text scrolling color
+	abstract away more settings into a configuration file 
 	Display error icon when API calls fail ✅
 */
 
@@ -248,9 +249,8 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 		std::string err_msg;
 		std::vector<Magick::Image> image_sequence;
 		if (LoadImageAndScale(filename,
-		                      56,
-		                      //Canvas->width(),
-		                      56,
+		                      offScreen->width(),
+		                      48,
 		                      //Canvas->height(),
 		                      fill_width,
 		                      fill_height,
@@ -316,14 +316,15 @@ static bool FullSaturation(const Color& c)
 		&& (c.b == 0 || c.b == 255);
 }
 
-void setBrightness(RGBMatrix* Canvas)
+void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 {
+	auto sunRise = static_cast<time_t>(currentWeather.getTimeArray()->at(1));
 	time_t timeNow = time(nullptr);
 	struct tm* currentTime = localtime(&timeNow);
 	int hour = currentTime->tm_hour;
 	uint8_t lowBrightness = 10;
 	uint8_t highBrightness = 100;
-	if ((hour >= 0) && (hour <= 5))
+	if ((hour >= 0) && (timeNow <= sunRise))
 	{
 		Canvas->SetBrightness(lowBrightness);
 	}
@@ -442,11 +443,6 @@ int main(int argc, char* argv[])
 
 	uint frame_counter = 0;
 
-	/*
-	fprintf(stderr,
-	        "Loading took %.3fs; now: Display.\n",
-	        (GetTimeInMillis() - start_load) / 1000.0);
-*/
 
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
@@ -475,7 +471,7 @@ int main(int argc, char* argv[])
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);
-			setBrightness(Canvas);
+			setBrightness(Canvas, currentWeather);
 			string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
 			                                      *currentWeather.getTimeArray(),
 			                                      currentWeather, rng);
