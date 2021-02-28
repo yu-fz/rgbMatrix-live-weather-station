@@ -20,12 +20,12 @@
 // $ make led-image-viewer
 
 /* TODO 
-	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise 
+	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise ✅
 	add stonk tracker
-	make weather icons look prettier
+	make weather icons look prettier 
 	center weather icons better
 	make it easier to change text scrolling color
-	Display error icon when API calls fail 
+	Display error icon when API calls fail ✅
 */
 
 
