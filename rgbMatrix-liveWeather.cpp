@@ -20,13 +20,11 @@
 // $ make led-image-viewer
 
 /* TODO 
-	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise ✅
 	add stonk tracker
+	make animated rain and snow 
 	make weather icons look prettier 
-	center weather icons better ✅
 	make it easier to change text scrolling color
 	abstract away more settings into a configuration file 
-	Display error icon when API calls fail ✅
 */
 
 
@@ -327,6 +325,7 @@ void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 	if ((hour >= 0) && (timeNow <= sunRise))
 	{
 		Canvas->SetBrightness(lowBrightness);
+		//switches display to low brightness in hours between midnight and sunrise 
 	}
 	else
 	{
