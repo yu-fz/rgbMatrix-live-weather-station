@@ -20,12 +20,11 @@
 // $ make led-image-viewer
 
 /* TODO 
-	make the matrix dim to ~10% brightness at midnight and revert to 100% at sunrise ✅
 	add stonk tracker
+	make animated rain and snow 
 	make weather icons look prettier 
-	center weather icons better
 	make it easier to change text scrolling color
-	Display error icon when API calls fail ✅
+	abstract away more settings into a configuration file 
 */
 
 
@@ -52,7 +51,7 @@
 #include "openWeatherData_Class.h"
 #include "weatherAPIOptionSetup.h"
 #include "imageViewerHelperFunctions.h"
-
+#include "getPixelCanvas.h"
 
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
@@ -248,9 +247,8 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 		std::string err_msg;
 		std::vector<Magick::Image> image_sequence;
 		if (LoadImageAndScale(filename,
-		                      56,
-		                      //Canvas->width(),
-		                      56,
+		                      offScreen->width(),
+		                      48,
 		                      //Canvas->height(),
 		                      fill_width,
 		                      fill_height,
@@ -316,16 +314,18 @@ static bool FullSaturation(const Color& c)
 		&& (c.b == 0 || c.b == 255);
 }
 
-void setBrightness(RGBMatrix* Canvas)
+void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 {
+	auto sunRise = static_cast<time_t>(currentWeather.getTimeArray()->at(1));
 	time_t timeNow = time(nullptr);
 	struct tm* currentTime = localtime(&timeNow);
 	int hour = currentTime->tm_hour;
 	uint8_t lowBrightness = 10;
 	uint8_t highBrightness = 100;
-	if ((hour >= 0) && (hour <= 5))
+	if ((hour >= 0) && (timeNow <= sunRise))
 	{
 		Canvas->SetBrightness(lowBrightness);
+		//switches display to low brightness in hours between midnight and sunrise 
 	}
 	else
 	{
@@ -350,7 +350,8 @@ int main(int argc, char* argv[])
 	initRuntimeOptions(runtimeOptions);
 	RGBMatrix* Canvas = RGBMatrix::CreateFromOptions(canvasOptions, runtimeOptions);
 	FrameCanvas* offScreenCanvas = Canvas->CreateFrameCanvas();
-
+	canvasWithGetPixel getPixelCanvas(Canvas);
+	getPixelCanvas.initPixelMap();
 	if (Canvas == nullptr)
 	{
 		return 1;
@@ -442,11 +443,6 @@ int main(int argc, char* argv[])
 
 	uint frame_counter = 0;
 
-	/*
-	fprintf(stderr,
-	        "Loading took %.3fs; now: Display.\n",
-	        (GetTimeInMillis() - start_load) / 1000.0);
-*/
 
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
@@ -463,8 +459,21 @@ int main(int argc, char* argv[])
 	currentWindSpeed = currentWeather.getWindSpeed();
 	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
+	//canvas.SetPixel(1, 1, 0, 255, 0);
+	//offScreenCanvas->SetPixel(1, 1, 0, 255, 0);
+
 	do
 	{
+		//Canvas->SetPixel(1, 1, 0, 255, 0);
+		/*
+		for (int i = 0; i <= 63; i++)
+		{
+			getPixelCanvas.SetPixel(i, 0, 0, 255, 0);
+			getPixelCanvas.getPixel(i, 0);
+		}
+		*/
+		//std::wcout << getPixelCanvas.getPixel(0, 1).g << "\n";
+		//offScreenCanvas2->SetPixel(1, 1, 0, 255, 0);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -475,7 +484,7 @@ int main(int argc, char* argv[])
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);
-			setBrightness(Canvas);
+			setBrightness(Canvas, currentWeather);
 			string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
 			                                      *currentWeather.getTimeArray(),
 			                                      currentWeather, rng);
@@ -539,10 +548,10 @@ int main(int argc, char* argv[])
 				clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next_frame, nullptr);
 			}
 		}
+		usleep(16666);
 		// Swap the offscreen_canvas with canvas on vsync, avoids flickering
 		offScreenCanvas = Canvas->SwapOnVSync(offScreenCanvas);
 		if (speed <= 0) pause(); // Nothing to scroll.
-		usleep(16666);
 	}
 	while (do_forever && !interrupt_received);
 

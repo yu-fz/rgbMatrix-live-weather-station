@@ -70,6 +70,12 @@
     <ClCompile Include="rgbMatrix-liveWeather.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="getPixelCanvas.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="animatedPixelFluidClasses.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="rgbMatrix-liveWeather-Debug.vgdbsettings">
@@ -135,6 +141,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="imageViewerHelperFunctions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="getPixelCanvas.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="animatedPixelFluids.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

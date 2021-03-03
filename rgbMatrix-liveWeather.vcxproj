@@ -70,6 +70,8 @@
     <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\options-initialize.cc" />
     <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\pixel-mapper.cc" />
     <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\thread.cc" />
+    <ClCompile Include="animatedPixelFluidClasses.cpp" />
+    <ClCompile Include="getPixelCanvas.cpp" />
     <ClCompile Include="imageFileDict.cpp" />
     <ClCompile Include="imageViewerUtilities.cpp" />
     <ClCompile Include="rgbMatrix-liveWeather.cpp" />
@@ -96,6 +98,8 @@
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\hardware-mapping.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\multiplex-mappers-internal.h" />
     <ClInclude Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\utf8-internal.h" />
+    <ClInclude Include="animatedPixelFluids.h" />
+    <ClInclude Include="getPixelCanvas.h" />
     <ClInclude Include="imageFileDictHeader.h" />
     <ClInclude Include="imageViewerHelperFunctions.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">false</ExcludedFromBuild>
