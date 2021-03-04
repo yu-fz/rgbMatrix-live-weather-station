@@ -18,7 +18,7 @@ private:
 	//std::vector<float> position;
 
 	rgb_matrix::Color particleColor;
-
+	std::vector<int> spawnPoints;
 
 public:
 

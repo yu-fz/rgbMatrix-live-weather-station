@@ -32,7 +32,6 @@ void canvasWithGetPixel::SetPixel(int x, int y, uint8_t red, uint8_t green, uint
 	rgb_matrix::Color pixelColor(red, green, blue);
 	pixelMap[x + (y * canvasWidth)] = pixelColor;
 
-	//call setPixel in a for loop; loop through all active pixels in pixelMap
 	delegatee_->SetPixel(x, y + offSetY, red, green, blue);
 }
 

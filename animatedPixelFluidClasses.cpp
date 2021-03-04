@@ -10,15 +10,20 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 	std::mt19937 gen(seed); // seed the generator
 	std::uniform_int_distribution<> distr(1, intensity); // define the range
 	int randNum;
-	//rgb_matrix::Color rainColor = rgb_matrix::Color(0, 0, 255); //blue ish color for rain 
 	for (int x = 21; x <= 41; x++)
 	{
 		//do RNG here
 		randNum = distr(gen);
 		if (randNum <= 10)
 		{
-			Canvas.SetPixel(x, 0, particleColor.r, particleColor.g, particleColor.b);
+			spawnPoints.push_back(x);
+			//call setPixel in a for loop; loop through all active pixels in pixelMap
 		}
+	}
+
+	for (auto i : spawnPoints)
+	{
+		Canvas.SetPixel(i, 0, particleColor.r, particleColor.g, particleColor.b);
 	}
 
 	//Canvas.SetPixel(...)
