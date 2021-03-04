@@ -52,6 +52,7 @@
 #include "weatherAPIOptionSetup.h"
 #include "imageViewerHelperFunctions.h"
 #include "getPixelCanvas.h"
+#include "animatedPixelFluids.h"
 
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
@@ -448,7 +449,8 @@ int main(int argc, char* argv[])
 	signal(SIGINT, InterruptHandler);
 
 	time_t timeOut = 120;
-	std::random_device randDevice{};
+	time_t seed = time(nullptr); //seed RNG with current unix time to shuffle the icon vector if len > 0
+	std::mt19937 randDevice{seed};
 	auto rng = std::default_random_engine{randDevice()};
 
 	string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
@@ -459,21 +461,14 @@ int main(int argc, char* argv[])
 	currentWindSpeed = currentWeather.getWindSpeed();
 	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
-	//canvas.SetPixel(1, 1, 0, 255, 0);
-	//offScreenCanvas->SetPixel(1, 1, 0, 255, 0);
+
+	auto rainColor = Color(0, 119, 190);
+	pixelParticle rainParticle;
+	rainParticle.setParticleColor(rainColor);
 
 	do
 	{
-		//Canvas->SetPixel(1, 1, 0, 255, 0);
-		/*
-		for (int i = 0; i <= 63; i++)
-		{
-			getPixelCanvas.SetPixel(i, 0, 0, 255, 0);
-			getPixelCanvas.getPixel(i, 0);
-		}
-		*/
-		//std::wcout << getPixelCanvas.getPixel(0, 1).g << "\n";
-		//offScreenCanvas2->SetPixel(1, 1, 0, 255, 0);
+		rainParticle.spawnParticle(300, getPixelCanvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -562,5 +557,6 @@ int main(int argc, char* argv[])
 	// Animation finished. Shut down the RGB matrix.
 	Canvas->Clear();
 	delete Canvas;
+	delete initWeatherOptions;
 	return 0;
 }
