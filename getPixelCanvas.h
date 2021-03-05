@@ -20,11 +20,13 @@ public:
 	}
 
 	int width() const override;
+	int getWidth() const;
 	int height() const override;
+	int getHeight() const;
 	void Clear() override;
 	void Fill(uint8_t red, uint8_t green, uint8_t blue) override;
 	void initPixelMap();
 	void SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue) override;
-
+	rgb_matrix::Color* getPixelMap();
 	rgb_matrix::Color getPixel(int x, int y);
 };

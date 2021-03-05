@@ -11,18 +11,24 @@ class pixelParticle
 private:
 
 
-	//float initialVelocity;
-
-	//float deltaT;
-
-	//std::vector<float> position;
-
+	float initialVelocity;
+	//std::string particleStringID;
+	float deltaT = 0.1;
 	rgb_matrix::Color particleColor;
-	std::vector<int> spawnPoints;
 
 public:
 
+	pixelParticle(int x, rgb_matrix::Color z)
+	{
+		initialVelocity = x;
+		//particleStringID = y;
+		particleColor = z;
+	}
+
 	void spawnParticle(int intensity, canvasWithGetPixel Canvas);
+	bool checkIfPixelIsEmpty(rgb_matrix::Color Color);
+	void drawParticles(canvasWithGetPixel Canvas);
+	void updateParticles(canvasWithGetPixel Canvas);
 
 	void setParticleColor(rgb_matrix::Color Color);
 };

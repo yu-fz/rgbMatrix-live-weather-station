@@ -463,12 +463,13 @@ int main(int argc, char* argv[])
 	time_t timeNow_image = time(nullptr);
 
 	auto rainColor = Color(0, 119, 190);
-	pixelParticle rainParticle;
-	rainParticle.setParticleColor(rainColor);
+	pixelParticle rainParticle(10, rainColor);
+	//rainParticle.setParticleColor(rainColor);
 
 	do
 	{
-		rainParticle.spawnParticle(300, getPixelCanvas);
+		rainParticle.spawnParticle(30, getPixelCanvas);
+		rainParticle.drawParticles(getPixelCanvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -558,5 +559,6 @@ int main(int argc, char* argv[])
 	Canvas->Clear();
 	delete Canvas;
 	delete initWeatherOptions;
+	delete getPixelCanvas.getPixelMap();
 	return 0;
 }

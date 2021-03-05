@@ -5,6 +5,17 @@ int canvasWithGetPixel::width() const
 	return delegatee_->width();
 }
 
+int canvasWithGetPixel::getWidth() const
+{
+	return canvasWidth;
+}
+
+int canvasWithGetPixel::getHeight() const
+{
+	return canvasHeight;
+}
+
+
 int canvasWithGetPixel::height() const
 {
 	return delegatee_->height();
@@ -29,10 +40,14 @@ void canvasWithGetPixel::Fill(uint8_t red, uint8_t green, uint8_t blue)
 void canvasWithGetPixel::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue)
 {
 	int offSetY = 35;
-	rgb_matrix::Color pixelColor(red, green, blue);
-	pixelMap[x + (y * canvasWidth)] = pixelColor;
-
+	//rgb_matrix::Color pixelColor(red, green, blue);
+	//pixelMap[x + (y * canvasWidth)] = pixelColor;
 	delegatee_->SetPixel(x, y + offSetY, red, green, blue);
+}
+
+rgb_matrix::Color* canvasWithGetPixel::getPixelMap()
+{
+	return pixelMap;
 }
 
 rgb_matrix::Color canvasWithGetPixel::getPixel(int x, int y)
