@@ -463,12 +463,14 @@ int main(int argc, char* argv[])
 	time_t timeNow_image = time(nullptr);
 
 	auto rainColor = Color(0, 119, 190);
-	pixelParticle rainParticle(10, rainColor);
+	//auto rainColor = Color(0, 0, 0);
+	pixelParticle rainParticle(10, "rain", rainColor);
 	//rainParticle.setParticleColor(rainColor);
 
 	do
 	{
-		rainParticle.spawnParticle(30, getPixelCanvas);
+		rainParticle.spawnParticle(100, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
 		rainParticle.drawParticles(getPixelCanvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
@@ -476,7 +478,7 @@ int main(int argc, char* argv[])
 		const bool draw_on_frame = (blink_on <= 0)
 			|| (frame_counter % (blink_on + blink_off) < static_cast<uint>(blink_on));
 
-		DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
+		//DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);

@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "animatedPixelFluids.h"
 
 void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
@@ -10,10 +12,13 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 	std::mt19937 gen(seed); // seed the generator
 	std::uniform_int_distribution<> distr(1, intensity); // define the range
 	int randNum;
+	range = intensity;
 	for (int x = 21; x <= 41; x++)
 	{
+		//Canvas.getPixelMap()[x] = black;
 		//do RNG here
 		randNum = distr(gen);
+		randInt = randNum;
 		if (randNum <= 10)
 		{
 			Canvas.getPixelMap()[x] = particleColor;
@@ -23,14 +28,86 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 
 void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 {
+	std::string id = "rain";
 	//loop through all pixels back to front, update pixel location if it is an active particle
-	for (int y = Canvas.getHeight() - 1; y == 0; y--)
+	for (int y = Canvas.getHeight() - 1; y >= 0; y--)
 	{
-		for (int x = Canvas.getWidth() - 1; x == 0; x--)
+		for (int x = Canvas.getWidth() - 1; x >= 0; x--)
 		{
+			if ((y < Canvas.getHeight() - 1) && (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor)))
+			{
+				//check down, downLeft and downRight
+				if (checkDown(x, y, Canvas) == false)
+				{
+					//move down
+
+					for (int j = y; j >= 0; j--)
+					{
+						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+					}
+
+					Canvas.getPixelMap()[x + ((y + 1) * Canvas.getWidth())] = particleColor;
+				}
+				else if ((x < Canvas.getWidth()) && checkDownRight(x, y, Canvas) == false)
+				{
+					for (int j = y; j >= 0; j--)
+					{
+						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+					}
+
+					Canvas.getPixelMap()[(x + 1) + ((y + 1) * Canvas.getWidth())] = particleColor;
+				}
+				else if ((x > 0) && checkDownLeft(x, y, Canvas) == false)
+				{
+					for (int j = y; j >= 0; j--)
+					{
+						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+					}
+
+					Canvas.getPixelMap()[(x - 1) + ((y + 1) * Canvas.getWidth())] = particleColor;
+					//fprintf(stderr, "nuttt");
+				}
+
+
+				else if ((x < Canvas.getWidth()) && (checkRight(x, y, Canvas) == false) && (particleStringID == "rain")
+					&& (randInt < range / 2))
+				{
+					for (int j = y; j >= 0; j--)
+					{
+						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+					}
+
+					for (int k = x; k < Canvas.getWidth(); k++)
+					{
+						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
+						{
+							Canvas.getPixelMap()[k + ((y + 1) * Canvas.getWidth())] = particleColor;
+							break;
+						}
+					}
+				}
+
+				else if ((x > 0) && checkLeft(x, y, Canvas) == false && (particleStringID == "rain"))
+				{
+					for (int j = y; j >= 0; j--)
+					{
+						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+					}
+
+					for (int k = x; k > 0; k--)
+					{
+						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
+						{
+							Canvas.getPixelMap()[k + ((y + 1) * Canvas.getWidth())] = particleColor;
+							break;
+						}
+					}
+				}
+			}
 		}
 	}
 }
+
 
 bool pixelParticle::checkIfPixelIsEmpty(rgb_matrix::Color Color)
 {
@@ -44,8 +121,18 @@ bool pixelParticle::checkIfPixelIsEmpty(rgb_matrix::Color Color)
 
 bool pixelParticle::checkDown(int x, int y, canvasWithGetPixel Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixelMap()[(x + (y + 1) * Canvas.getWidth())];
+	rgb_matrix::Color pixelColor = Canvas.getPixel(x, y + 1);
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool pixelParticle::checkIfParticleColorEquiv(rgb_matrix::Color x, rgb_matrix::Color y)
+{
+	if ((x.r == y.r) && (x.g == y.g) && (x.b == y.b))
 	{
 		return true;
 	}
@@ -55,7 +142,7 @@ bool pixelParticle::checkDown(int x, int y, canvasWithGetPixel Canvas)
 
 bool pixelParticle::checkDownRight(int x, int y, canvasWithGetPixel Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixelMap()[((x + 1) + (y + 1) * Canvas.getWidth())];
+	rgb_matrix::Color pixelColor = Canvas.getPixel(x + 1, y + 1);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -67,7 +154,31 @@ bool pixelParticle::checkDownRight(int x, int y, canvasWithGetPixel Canvas)
 
 bool pixelParticle::checkDownLeft(int x, int y, canvasWithGetPixel Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixelMap()[((x - 1) + (y + 1) * Canvas.getWidth())];
+	rgb_matrix::Color pixelColor = Canvas.getPixel(x - 1, y + 1);
+
+	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool pixelParticle::checkLeft(int x, int y, canvasWithGetPixel Canvas)
+{
+	rgb_matrix::Color pixelColor = Canvas.getPixel(x - 1, y);
+
+	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool pixelParticle::checkRight(int x, int y, canvasWithGetPixel Canvas)
+{
+	rgb_matrix::Color pixelColor = Canvas.getPixel(x + 1, y);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
