@@ -449,6 +449,7 @@ int main(int argc, char* argv[])
 	signal(SIGINT, InterruptHandler);
 
 	time_t timeOut = 120;
+
 	time_t seed = time(nullptr); //seed RNG with current unix time to shuffle the icon vector if len > 0
 	std::mt19937 randDevice{seed};
 	auto rng = std::default_random_engine{randDevice()};
@@ -461,16 +462,17 @@ int main(int argc, char* argv[])
 	currentWindSpeed = currentWeather.getWindSpeed();
 	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
-
 	auto rainColor = Color(0, 119, 190);
-	//auto rainColor = Color(0, 0, 0);
+	auto snowColor = Color(255, 255, 255);
 	pixelParticle rainParticle(10, "rain", rainColor);
-	//rainParticle.setParticleColor(rainColor);
+	pixelParticle snowParticle(10, "snow", snowColor);
 
 	do
 	{
-		rainParticle.spawnParticle(100, getPixelCanvas);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		snowParticle.spawnParticle(150, getPixelCanvas);
 		rainParticle.updateParticles(getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
 		rainParticle.drawParticles(getPixelCanvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
