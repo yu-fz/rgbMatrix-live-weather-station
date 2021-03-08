@@ -15,6 +15,7 @@ private:
 	std::string particleStringID;
 	float deltaT = 0.1;
 	rgb_matrix::Color particleColor;
+	rgb_matrix::Color rainColor;
 	time_t timeNow = time(nullptr);
 	int randInt;
 	int range;
@@ -28,6 +29,10 @@ public:
 		initialVelocity = x;
 		particleStringID = y;
 		particleColor = z;
+		if (particleStringID == "rain")
+		{
+			rainColor = z;
+		}
 	}
 
 	void spawnParticle(int intensity, canvasWithGetPixel Canvas);
@@ -39,9 +44,8 @@ public:
 	bool checkLeft(int x, int y, canvasWithGetPixel Canvas);
 	bool checkUp(int x, int y, canvasWithGetPixel Canvas);
 	bool checkIfParticleColorEquiv(rgb_matrix::Color x, rgb_matrix::Color y);
+	void freezeWaterParticles(canvasWithGetPixel Canvas);
 	void drawParticles(canvasWithGetPixel Canvas);
 	void updateParticles(canvasWithGetPixel Canvas);
-	void evaporateParticles(canvasWithGetPixel Canvas);
-
 	void setParticleColor(rgb_matrix::Color Color);
 };

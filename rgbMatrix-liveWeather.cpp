@@ -464,8 +464,10 @@ int main(int argc, char* argv[])
 	time_t timeNow_image = time(nullptr);
 	auto rainColor = Color(0, 119, 190);
 	auto snowColor = Color(255, 255, 255);
+	auto iceColor = Color(63, 208, 212);
 	pixelParticle rainParticle(10, "rain", rainColor);
 	pixelParticle snowParticle(10, "snow", snowColor);
+	pixelParticle iceParticle(0, "ice", iceColor);
 
 	do
 	{
@@ -473,6 +475,8 @@ int main(int argc, char* argv[])
 		snowParticle.spawnParticle(150, getPixelCanvas);
 		rainParticle.updateParticles(getPixelCanvas);
 		snowParticle.updateParticles(getPixelCanvas);
+		//iceParticle.updateParticles(getPixelCanvas);
+		iceParticle.freezeWaterParticles(getPixelCanvas);
 		rainParticle.drawParticles(getPixelCanvas);
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;

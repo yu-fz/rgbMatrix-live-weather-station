@@ -28,9 +28,10 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 
 void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 {
-	time_t seed = time(nullptr); // obtain a random number from hardware
-	std::mt19937 gen(seed); // seed the generator
-	std::uniform_int_distribution<> distr(1, 250); // define the range
+	//time_t seed = time(nullptr); // obtain a random number from hardware
+	std::random_device seed;
+	std::mt19937 gen(seed()); // seed the generator
+	std::uniform_int_distribution<> distr(1, 500); // randomly generates numbers from 1 to 250 
 	int randNum;
 	//loop through all pixels back to front, update pixel location if it is an active particle
 	for (int y = Canvas.getHeight() - 1; y >= 0; y--)
@@ -109,24 +110,29 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 				}
 			}
 
-			if ((y == Canvas.getHeight() - 1) && (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
-				&& (
-					checkUp(x, y, Canvas) == false)) //handles evaporating particles 
-			{
-				randNum = distr(gen);
-				if (randNum <= 15)
-				{
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
-				}
-			}
-			else if ((checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
+			//handles evaporating particles
+			//rain, snow, ice should have different evaporating rates 
+
+
+			if ((checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
 				&& (
 					checkUp(x, y, Canvas) == false) && (checkDown(x, y, Canvas) == true))
 			{
 				randNum = distr(gen);
-				if (randNum <= 15)
+
+				if (particleStringID == "rain")
 				{
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+					if (randNum <= 12)
+					{
+						Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+					}
+				}
+				else if (particleStringID == "snow")
+				{
+					if (randNum <= 5)
+					{
+						Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+					}
 				}
 			}
 		}
@@ -225,45 +231,39 @@ bool pixelParticle::checkUp(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-
-void pixelParticle::evaporateParticles(canvasWithGetPixel Canvas)
+void pixelParticle::freezeWaterParticles(canvasWithGetPixel Canvas)
 {
-	//loop through the canvas back to front, use RNG to decide whether or not to delete active particle
-	//particle can only be evaporated if the particle is on the ground or above another particle and there is no particle above it.
-
-	time_t seed = time(nullptr); // obtain a random number from hardware
-	std::mt19937 gen(seed); // seed the generator
-	std::uniform_int_distribution<> distr(1, 250); // define the range
+	std::random_device seed;
+	std::mt19937 gen(seed()); // seed the generator
+	std::uniform_int_distribution<> distr(1, 500); // randomly generates numbers from 1 to 250
 	int randNum;
-	//range = intensity;
-	for (int y = Canvas.getHeight() - 1; y >= 0; y--)
+	//double for loop through lower third of the Canvas
+	for (int y = Canvas.getHeight() - 1; y >= Canvas.getHeight() - 5; y--) //for y
 	{
-		for (int x = 0; x < Canvas.getWidth(); x++)
+		for (int x = 0; x < Canvas.getWidth(); x++) //for x 
 		{
-			if ((y == Canvas.getHeight() - 1) && (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
-				&& (
-					checkUp(x, y, Canvas) == false)) //handles evaporating particles 
+			if (checkUp(x, y, Canvas) == true && checkIfPixelIsEmpty(Canvas.getPixel(x, y)) == false &&
+				checkIfParticleColorEquiv(
+					Canvas.getPixel(x, y),
+					Canvas.getPixel(x, y - 1)) == false)
 			{
 				randNum = distr(gen);
-				if (randNum <= 50)
+				if (randNum < 10)
 				{
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = particleColor;
 				}
 			}
-			else if ((checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
-				&& (
-					checkUp(x, y, Canvas) == false) && (checkDown(x, y, Canvas) == true))
+			else if (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
 			{
 				randNum = distr(gen);
-				if (randNum <= 50)
+				if (randNum < 10)
 				{
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = rainColor;
 				}
 			}
 		}
 	}
 }
-
 
 void pixelParticle::drawParticles(canvasWithGetPixel Canvas)
 {
