@@ -26,6 +26,20 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 	}
 }
 
+int pixelParticle::calculateFallDistance()
+{
+	distance = distance + (deltaT * initialVelocity);
+	//distance = round(distance);
+	float delta = pixelDistance - distance;
+	//std::wcout << distance <<std::endl;
+	if (delta < 0)
+	{
+		distance = 0;
+		return 1;
+	}
+	return 0;
+}
+
 void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 {
 	//time_t seed = time(nullptr); // obtain a random number from hardware
@@ -51,7 +65,7 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[x + ((y + 1) * Canvas.getWidth())] = particleColor;
+					Canvas.getPixelMap()[x + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
 				}
 				else if ((x < Canvas.getWidth()) && checkDownRight(x, y, Canvas) == false)
 				{
@@ -60,7 +74,7 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[(x + 1) + ((y + 1) * Canvas.getWidth())] = particleColor;
+					Canvas.getPixelMap()[(x + 1) + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
 				}
 				else if ((x > 0) && checkDownLeft(x, y, Canvas) == false)
 				{
@@ -69,7 +83,7 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[(x - 1) + ((y + 1) * Canvas.getWidth())] = particleColor;
+					Canvas.getPixelMap()[(x - 1) + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
 					//fprintf(stderr, "nuttt");
 				}
 
@@ -86,7 +100,8 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 					{
 						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
 						{
-							Canvas.getPixelMap()[k + ((y + 1) * Canvas.getWidth())] = particleColor;
+							Canvas.getPixelMap()[k + ((y + calculateFallDistance()) * Canvas.getWidth())] =
+								particleColor;
 							break;
 						}
 					}
@@ -103,7 +118,8 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 					{
 						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
 						{
-							Canvas.getPixelMap()[k + ((y + 1) * Canvas.getWidth())] = particleColor;
+							Canvas.getPixelMap()[k + ((y + calculateFallDistance()) * Canvas.getWidth())] =
+								particleColor;
 							break;
 						}
 					}
@@ -265,7 +281,7 @@ void pixelParticle::freezeWaterParticles(canvasWithGetPixel Canvas)
 	}
 }
 
-void pixelParticle::drawParticles(canvasWithGetPixel Canvas)
+ void pixelParticle::drawParticles(canvasWithGetPixel Canvas)
 {
 	// call setPixel in a double for loop
 

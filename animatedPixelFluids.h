@@ -11,15 +11,17 @@ class pixelParticle
 private:
 
 
-	float initialVelocity;
+	int initialVelocity;
 	std::string particleStringID;
-	float deltaT = 0.1;
+	float deltaT = 0.05;
 	rgb_matrix::Color particleColor;
 	rgb_matrix::Color rainColor;
 	time_t timeNow = time(nullptr);
 	int randInt;
 	int range;
 
+	float distance;
+	int pixelDistance = 1;
 	rgb_matrix::Color black = rgb_matrix::Color(0, 0, 0);
 
 public:
@@ -36,7 +38,7 @@ public:
 	}
 
 	void spawnParticle(int intensity, canvasWithGetPixel Canvas);
-	bool checkIfPixelIsEmpty(rgb_matrix::Color Color);
+	static bool checkIfPixelIsEmpty(rgb_matrix::Color Color);
 	bool checkDown(int x, int y, canvasWithGetPixel Canvas);
 	bool checkDownRight(int x, int y, canvasWithGetPixel Canvas);
 	bool checkDownLeft(int x, int y, canvasWithGetPixel Canvas);
@@ -45,7 +47,8 @@ public:
 	bool checkUp(int x, int y, canvasWithGetPixel Canvas);
 	bool checkIfParticleColorEquiv(rgb_matrix::Color x, rgb_matrix::Color y);
 	void freezeWaterParticles(canvasWithGetPixel Canvas);
-	void drawParticles(canvasWithGetPixel Canvas);
+	static void drawParticles(canvasWithGetPixel Canvas);
 	void updateParticles(canvasWithGetPixel Canvas);
 	void setParticleColor(rgb_matrix::Color Color);
+	int calculateFallDistance();
 };
