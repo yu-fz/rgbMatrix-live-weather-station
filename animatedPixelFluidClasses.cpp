@@ -2,6 +2,11 @@
 
 #include "animatedPixelFluids.h"
 
+void pixelParticle::setParticleVelocity(int velocity)
+{
+	initialVelocity = velocity;
+}
+
 void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 {
 	//use RNG to determine which pixel in the "spawn layer" (y = 0) gets to spawn a particle every tick 

@@ -334,6 +334,105 @@ void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 	}
 }
 
+void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainParticle, pixelParticle snowParticle, pixelParticle iceParticle, string imageFile)
+{ 
+	
+	//if else ifs 
+	if(imageFile == "./day/rainy-1.png" || imageFile == "./night/rainy-1.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+	}else if(imageFile == "./day/rainy-2.png" || imageFile == "./night/rainy-2.png") 
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	} else if(imageFile == "./day/rainy-3.png" || imageFile == "./night/rainy-3.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	} else if(imageFile == "./day/rainy-4.png" || imageFile == "./night/rainy-4.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/rainy-5.png" || imageFile == "./night/rainy-5.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/rainy-6.png" || imageFile == "./night/rainy-6.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/rainy-7.png" || imageFile == "./night/rainy-7.png")
+	{
+		rainParticle.setParticleVelocity(20);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/snow-1.png" || imageFile == "./night/snow-1.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+	}else if(imageFile == "./day/snow-2.png" || imageFile == "./night/snow-2.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/snow-3.png" || imageFile == "./night/snow-3.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/snow-4.png" || imageFile == "./night/snow-4.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/snow-7.png" || imageFile == "./night/snow-7.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}else if(imageFile == "./day/sleet-1.png" || imageFile == "./night/sleet-1.png")
+	{
+		snowParticle.setParticleVelocity(5);
+		rainParticle.setParticleVelocity(30);
+		rainParticle.spawnParticle(50, getPixelCanvas);
+		snowParticle.spawnParticle(150, getPixelCanvas);
+		rainParticle.updateParticles(getPixelCanvas);
+		snowParticle.updateParticles(getPixelCanvas);
+		iceParticle.freezeWaterParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);
+		
+	}
+}
 
 int main(int argc, char* argv[])
 {
@@ -471,20 +570,29 @@ int main(int argc, char* argv[])
 
 	do
 	{
+	/*
 		rainParticle.spawnParticle(50, getPixelCanvas);
 		snowParticle.spawnParticle(150, getPixelCanvas);
 		rainParticle.updateParticles(getPixelCanvas);
 		snowParticle.updateParticles(getPixelCanvas);
-		//iceParticle.updateParticles(getPixelCanvas);
 		iceParticle.freezeWaterParticles(getPixelCanvas);
 		pixelParticle::drawParticles(getPixelCanvas);
+		*/
+		drawPrecipitation(getPixelCanvas,
+			rainParticle,
+			snowParticle,
+			iceParticle,
+			selectImagesToDraw(*currentWeather.getWeatherIDArray(),
+				*currentWeather.getTimeArray(),
+				currentWeather,
+				rng));
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
 		const bool draw_on_frame = (blink_on <= 0)
 			|| (frame_counter % (blink_on + blink_off) < static_cast<uint>(blink_on));
 
-		//DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
+		DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);

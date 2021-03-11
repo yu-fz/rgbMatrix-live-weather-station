@@ -38,6 +38,7 @@ public:
 	}
 
 	void spawnParticle(int intensity, canvasWithGetPixel Canvas);
+	void setParticleVelocity(int velocity);
 	static bool checkIfPixelIsEmpty(rgb_matrix::Color Color);
 	bool checkDown(int x, int y, canvasWithGetPixel Canvas);
 	bool checkDownRight(int x, int y, canvasWithGetPixel Canvas);

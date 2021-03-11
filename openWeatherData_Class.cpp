@@ -43,7 +43,7 @@ int requestCurrentWeather::getWeatherData()
 				             for (auto i : weather.as_array())
 				             {
 					             arrayOfWeatherIDs.push_back(i.at(U("id")).as_integer());
-					             std::wcout << i.at(U("id")).as_integer() << "\n";
+					             //std::wcout << i.at(U("id")).as_integer() << "\n";
 				             }
 
 				             currentTemperature = main.at(U("temp")).as_integer();
