@@ -370,3 +370,6 @@ FodyWeavers.xsd
 
 # apiKey text file 
 apiConfig.txt
+
+# visualgdb files
+.visualgdb/
