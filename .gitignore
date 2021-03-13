@@ -372,4 +372,4 @@ FodyWeavers.xsd
 apiConfig.txt
 
 # visualgdb files
-.visualgdb/
+./.visualgdb/
