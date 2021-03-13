@@ -67,7 +67,7 @@ int requestCurrentWeather::getWeatherData()
 	catch (const std::exception& e)
 	{
 		clearImageRenderList();
-		imageRenderListPush("./error_icon.png");
+		//imageRenderListPush("./error_icon.png");
 	}
 }
 
