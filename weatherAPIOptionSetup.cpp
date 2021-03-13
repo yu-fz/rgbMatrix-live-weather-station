@@ -7,7 +7,7 @@ void initWeatherAPIOptions(weatherAPIOptions* initWeatherOptions)
 	string_t apiKey;
 	string_t units;
 	string_t location;
-
+	//use YAML/JSON to implement config file parsing 
 	keyFile.open("apiConfig.txt");
 	if (keyFile.is_open())
 	{

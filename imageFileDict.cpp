@@ -1,5 +1,10 @@
 ﻿#include "./imageFileDictHeader.h"
-
+/* TODO:
+ *  implement weatherCodeDict as a global variable so the dict does not get recreated every API call 
+ *	
+ *	map each second element of the pair to the file ext. 
+ *
+ */
 //dict to look match weather codes to image file names 
 vector<string> lookUpImageToDraw(vector<int>& weatherID)
 {
@@ -14,7 +19,7 @@ vector<string> lookUpImageToDraw(vector<int>& weatherID)
 	weatherCodeDict.insert(pair<int, string>(230, "tStorm-1"));
 	weatherCodeDict.insert(pair<int, string>(231, "tStorm-7"));
 	weatherCodeDict.insert(pair<int, string>(232, "tStorm-8"));
-	weatherCodeDict.insert(pair<int, string>(300, "rainy-1"));
+	weatherCodeDict.insert(pair<int, string>(300, "rainy-1")); // cloud-precip
 	weatherCodeDict.insert(pair<int, string>(301, "rainy-2"));
 	weatherCodeDict.insert(pair<int, string>(302, "rainy-3"));
 	weatherCodeDict.insert(pair<int, string>(310, "rainy-1"));
@@ -65,6 +70,8 @@ vector<string> lookUpImageToDraw(vector<int>& weatherID)
 
 	for (auto i : weatherID)
 	{
+		//I can append file ext here 
+		//
 		auto it = weatherCodeDict.find(i);
 		fileNames.push_back(it->second); //retrieve array of image file names to be displayed
 	}

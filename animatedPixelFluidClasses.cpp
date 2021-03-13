@@ -9,6 +9,10 @@ void pixelParticle::setParticleVelocity(int velocity)
 
 void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 {
+	//later, make intensity a scale from 1-10 
+	
+	//right now, high intensity numbers means less precipitation
+	
 	//use RNG to determine which pixel in the "spawn layer" (y = 0) gets to spawn a particle every tick 
 	// confine spawn area to a 20 pixel wide strip in the center ...31+/- 10px maybe
 	// ~x = [21, 41]
@@ -89,7 +93,7 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 					}
 
 					Canvas.getPixelMap()[(x - 1) + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
-					//fprintf(stderr, "nuttt");
+					
 				}
 
 
@@ -133,7 +137,6 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 
 			//handles evaporating particles
 			//rain, snow, ice should have different evaporating rates 
-
 
 			if ((checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
 				&& (
@@ -271,6 +274,7 @@ void pixelParticle::freezeWaterParticles(canvasWithGetPixel Canvas)
 				randNum = distr(gen);
 				if (randNum < 10)
 				{
+					//rainParticle morphs into -> pixelParticle iceParticle(x,y,z); 
 					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = particleColor;
 				}
 			}

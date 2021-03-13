@@ -160,7 +160,8 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 
 		for (auto i : filesToDraw)
 		{
-			//std::cout << i;
+			//string fullImageFilePath goes here
+			//use ternary operators (if else on 1 line)
 			if ((currentTime > sunRise) && (currentTime <= sunSet))
 			{
 				imageFilePath = "./day/";
@@ -201,7 +202,7 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 		weather.imageRenderListPush("./day/hiTemp.png");
 	}
 
-	// Place image files into image render buffer every so often
+
 	imageRenderList = weather.getImageRenderList();
 	if (imageRenderList.size() > 1)
 	{
@@ -213,7 +214,7 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	{
 		imageFileToBeRendered = imageRenderList.front();
 	}
-
+	
 	return imageFileToBeRendered;
 }
 
@@ -285,7 +286,6 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 		return file_imgs;
 	}
 
-	//else return currentWeather.getLastFile_Img();
 	return currentWeather.getLastFile_Img();
 }
 
@@ -315,6 +315,8 @@ static bool FullSaturation(const Color& c)
 		&& (c.b == 0 || c.b == 255);
 }
 
+
+
 void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 {
 	auto sunRise = static_cast<time_t>(currentWeather.getTimeArray()->at(1));
@@ -336,12 +338,14 @@ void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 
 void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainParticle, pixelParticle snowParticle, pixelParticle iceParticle, string imageFile)
 { 
-	
-	//if else ifs 
+	//implement with enums 
+	//find other way to store severity besides the file directory string 
+	//reimplement as class to capture states 
+
 	if(imageFile == "./day/rainy-1.png" || imageFile == "./night/rainy-1.png")
 	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
+		rainParticle.setParticleVelocity(20); //speed limit is 1 pixel per tick 
+		rainParticle.spawnParticle(50, getPixelCanvas); //higher the number, means less of a chance for particles to spawn
 		rainParticle.updateParticles(getPixelCanvas);
 		pixelParticle::drawParticles(getPixelCanvas);
 	}else if(imageFile == "./day/rainy-2.png" || imageFile == "./night/rainy-2.png") 
@@ -440,6 +444,7 @@ int main(int argc, char* argv[])
 
 	RGBMatrix::Options canvasOptions;
 	RuntimeOptions runtimeOptions;
+	
 	requestCurrentWeather currentWeather;
 
 	weatherAPIOptions* initWeatherOptions = new weatherAPIOptions();
@@ -506,6 +511,7 @@ int main(int argc, char* argv[])
 	{
 		outline_font = font.CreateOutlineFont();
 	}
+	
 
 	const bool all_extreme_colors = (canvasOptions.brightness == 100)
 		&& FullSaturation(color)
@@ -570,14 +576,7 @@ int main(int argc, char* argv[])
 
 	do
 	{
-	/*
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		iceParticle.freezeWaterParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		*/
+
 		drawPrecipitation(getPixelCanvas,
 			rainParticle,
 			snowParticle,
@@ -586,6 +585,7 @@ int main(int argc, char* argv[])
 				*currentWeather.getTimeArray(),
 				currentWeather,
 				rng));
+		
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -593,6 +593,7 @@ int main(int argc, char* argv[])
 			|| (frame_counter % (blink_on + blink_off) < static_cast<uint>(blink_on));
 
 		DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
+		
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);

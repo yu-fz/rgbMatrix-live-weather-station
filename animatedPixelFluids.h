@@ -8,8 +8,9 @@
 // pixelParticle rain, rain.spawnParticle( int intensity, rbj_matrix::Canvas getPixelcanvas)
 class pixelParticle
 {
+	
+	
 private:
-
 
 	int initialVelocity;
 	std::string particleStringID;
@@ -19,7 +20,6 @@ private:
 	time_t timeNow = time(nullptr);
 	int randInt;
 	int range;
-
 	float distance;
 	int pixelDistance = 1;
 	rgb_matrix::Color black = rgb_matrix::Color(0, 0, 0);

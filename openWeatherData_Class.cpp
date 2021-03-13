@@ -18,6 +18,7 @@ int requestCurrentWeather::getWeatherData()
 {
 	try
 	{
+	
 		// Build request URI and start the request.
 		http_client client(U("http://api.openweathermap.org/data/2.5/weather?"));
 		uri_builder builder;
