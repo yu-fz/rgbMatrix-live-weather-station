@@ -77,18 +77,17 @@ vector<string> lookUpImageToDraw(vector<int>& weatherID)
 
 	for (auto i : weatherID)
 	{
-<<<<<<< HEAD
+
 		//I can append file ext here 
 		//
 		auto it = weatherCodeDict.find(i);
 		fileNames.push_back(it->second); //retrieve array of image file names to be displayed
-=======
 		auto range = weatherCodeDict.equal_range(i);
 		for (auto it = range.first; it != range.second; ++it)
 		{
 			fileNames.push_back(it->second);
 		}
->>>>>>> multimapDict
+
 	}
 
 	return fileNames;

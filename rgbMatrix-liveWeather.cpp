@@ -1,4 +1,4 @@
-// -*- mode: c++; c-basic-offset: 2; indent-tabs-mode: nil; -*-
+﻿// -*- mode: c++; c-basic-offset: 2; indent-tabs-mode: nil; -*-
 // Copyright (C) 2015 Henner Zeller <h.zeller@acm.org>
 //
 // This program is free software; you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 
 /* TODO 
 	add stonk tracker
-	make animated rain and snow 
+	make animated rain and snow ✅
 	make weather icons look prettier 
 	make it easier to change text scrolling color
 	abstract away more settings into a configuration file 
