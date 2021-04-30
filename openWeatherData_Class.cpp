@@ -41,11 +41,14 @@ int requestCurrentWeather::getWeatherData()
 				             json::value wind = openWeatherJSONResponse.at(U("wind"));
 				             arrayOfWeatherIDs.clear();
 				             //in the format [currentTime, sunRise, sunSet]
+				            
 				             for (auto i : weather.as_array())
 				             {
 					             arrayOfWeatherIDs.push_back(i.at(U("id")).as_integer());
 					             //std::wcout << i.at(U("id")).as_integer() << "\n";
 				             }
+				             
+				             //arrayOfWeatherIDs.push_back(504);
 
 				             currentTemperature = main.at(U("temp")).as_integer();
 				             feelsLikeTemp = main.at(U("feels_like")).as_integer();
@@ -116,6 +119,177 @@ vector<string> requestCurrentWeather::getImageRenderList() const
 	return imageRenderList;
 }
 
+int requestCurrentWeather::getWeatherArrayFirstElement()
+{
+	return arrayOfWeatherIDs[0];
+}
+
+int requestCurrentWeather::getPrecipitationIntensity(int weatherCode)
+{
+	enum intensity
+	{
+		light,
+		medium,
+		heavy,
+		extreme
+		
+	};
+	
+	switch (weatherCode) {
+		
+	case 300:
+		
+		return light;
+		
+	case 301:
+		
+		return light;
+		
+	case 302:
+		
+		return medium;
+		
+	case 310:
+		
+		return light;
+	
+	case 311:
+		
+		return light;
+		
+	case 312:
+		
+		return medium;
+	
+	case 313:
+		
+		return light;
+	
+	case 314:
+		
+		return medium; 
+	
+	case 321: 
+		
+		return light;
+
+	case 500:
+		
+		return light;
+		
+	case 501: 
+		
+		return medium;
+	
+	case 502: 
+		
+		return heavy;
+	
+	case 503:
+		
+		return extreme;
+	
+	case 504:
+		
+		return extreme;
+		
+	case 511:
+		
+		return medium;
+		
+	case 520:
+		
+		return light;
+		
+	case 521:
+		
+		return medium;
+			
+	case 522:
+	
+		return heavy;
+			
+	case 531:
+			
+		return medium;
+		
+	case 600:
+		
+		return light;
+			
+	case 601:
+		
+		return medium;
+		
+	case 602:
+		
+		return heavy;
+	
+	case 611:
+		
+		return medium;
+	
+	case 612:
+		
+		return light;
+		
+	case 613:
+		
+		return medium;
+		
+	case 615:
+		
+		return light;
+	
+	case 616:
+		
+		return medium;
+		
+	case 620:
+		
+		return light;
+		
+	case 621:
+			
+		return medium;
+	
+	case 622:
+		
+		return heavy;
+			
+		
+	}
+}
+
+
+
+int requestCurrentWeather::getPrecipitationType(int weatherCode)
+{
+	enum precipitationTypes
+	{
+		none,
+		rain,
+		snow,
+		sleet
+	};
+	
+	switch (weatherCode)
+	{
+	case 200 ... 521:
+		return rain;
+	case 600 ... 602:
+		return snow;
+	case 611 ... 621:
+		return sleet;
+	case 622:
+		return snow;
+	case 701 ... 804:
+		return none;
+	
+	}	
+}
+
+
 void requestCurrentWeather::clearImageRenderList()
 {
 	imageRenderList.clear();
@@ -156,4 +330,16 @@ void requestCurrentWeather::initOpenWeatherOptions(weatherAPIOptions* initWeathe
 	timeout = initWeatherOptions->timeout;
 	lastImageRenderedName = initWeatherOptions->lastImageRenderedName;
 	imageRenderList = initWeatherOptions->imageRenderList;
+}
+
+void requestCurrentWeather::setPrecipImageStatus(bool status)
+{
+	
+	*precipStatusRef = status;
+	
+}
+
+bool requestCurrentWeather::getPrecipImageStatus()
+{
+	return *precipStatusRef;
 }

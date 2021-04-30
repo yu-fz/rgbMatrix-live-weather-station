@@ -41,15 +41,22 @@ private:
 	std::vector<long long>* arrayOfTimesRef = &arrayOfTimes;
 
 	std::vector<FileInfo*> file_imgs;
+	
 	int windSpeed;
+	
 	int feelsLikeTemp;
 
 	time_t counter;
-
+	
 	time_t timeout;
 
 	string lastImageRenderedName;
+	
 	vector<string> imageRenderList;
+	
+	bool precipStatus;
+	
+	bool* precipStatusRef = &precipStatus;
 
 public:
 
@@ -82,7 +89,12 @@ public:
 	void imageRenderListPop();
 
 	vector<string> getImageRenderList() const;
-
+	
+	int getPrecipitationType(int weatherCode);
+	
+	int getPrecipitationIntensity(int weatherCode);
+	
+	int getWeatherArrayFirstElement();
 
 	void clearImageRenderList();
 
@@ -95,4 +107,7 @@ public:
 	vector<FileInfo*> getLastFile_Img();
 
 	void initOpenWeatherOptions(weatherAPIOptions* initWeatherOptions);
+	
+	bool getPrecipImageStatus();
+	void setPrecipImageStatus(bool status);
 };

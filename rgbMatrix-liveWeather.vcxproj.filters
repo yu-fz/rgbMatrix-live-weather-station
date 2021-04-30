@@ -76,6 +76,12 @@
     <ClCompile Include="animatedPixelFluidClasses.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="stonkTracker.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelParticleSet.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="rgbMatrix-liveWeather-Debug.vgdbsettings">
@@ -147,6 +153,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="animatedPixelFluids.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="stonkTracker.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="pixelParticleSet.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -74,8 +74,10 @@
     <ClCompile Include="getPixelCanvas.cpp" />
     <ClCompile Include="imageFileDict.cpp" />
     <ClCompile Include="imageViewerUtilities.cpp" />
+    <ClCompile Include="pixelParticleSet.cpp" />
     <ClCompile Include="rgbMatrix-liveWeather.cpp" />
     <ClCompile Include="openWeatherData_Class.cpp" />
+    <ClCompile Include="stonkTracker.cpp" />
     <ClCompile Include="weatherAPIOptionSetup.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +108,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="openWeatherData_Class.h" />
+    <ClInclude Include="pixelParticleSet.h" />
+    <ClInclude Include="stonkTracker.h" />
     <ClInclude Include="weatherAPIOptionSetup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

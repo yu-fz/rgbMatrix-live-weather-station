@@ -53,6 +53,7 @@
 #include "imageViewerHelperFunctions.h"
 #include "getPixelCanvas.h"
 #include "animatedPixelFluids.h"
+#include "pixelParticleSet.h"
 
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
@@ -117,7 +118,7 @@ static void add_micros(struct timespec* accumulator, long micros)
 	}
 }
 
-//Gets the necessary string to display on the bottom of the matrix
+//Gets the necessary string  to display on the bottom of the matrix
 string getTemperatureToDisplay(int temp, int windSpeed, int feelsLikeTemp)
 {
 	string temperature_str = std::to_string(temp);
@@ -213,6 +214,16 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	else
 	{
 		imageFileToBeRendered = imageRenderList.front();
+	}
+	
+	if (imageFileToBeRendered.find("precipitation") != std::string::npos)
+	{
+		weather.setPrecipImageStatus(true);
+		
+	}
+	else
+	{
+		weather.setPrecipImageStatus(false);
 	}
 	
 	return imageFileToBeRendered;
@@ -336,107 +347,194 @@ void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 	}
 }
 
-void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainParticle, pixelParticle snowParticle, pixelParticle iceParticle, string imageFile)
+void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle particle, int precipitationType, int precipitationIntensity)
+{ 
+	//implement with enums 
+	//find other way to store severity besides the file directory string 
+	//reimplement as class to capture states 
+	
+		//rain or snow
+		if(precipitationType == 1) {
+			
+			particle.setParticleVelocity(8);    //speed limit is 1 pixel per tick 
+		}else if(precipitationType == 2) {
+			
+			particle.setParticleVelocity(40);
+		}
+		particle.spawnParticle(precipitationIntensity, getPixelCanvas);     //higher the number, means less of a chance for particles to spawn
+		particle.updateParticles(getPixelCanvas);
+		pixelParticle::drawParticles(getPixelCanvas);	
+		
+}
+
+
+void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainParticle, pixelParticle snowParticle, pixelParticle iceParticle, int precipitationIntensity)
 { 
 	//implement with enums 
 	//find other way to store severity besides the file directory string 
 	//reimplement as class to capture states 
 
-	if(imageFile == "./day/rainy-1.png" || imageFile == "./night/rainy-1.png")
-	{
-		rainParticle.setParticleVelocity(20); //speed limit is 1 pixel per tick 
-		rainParticle.spawnParticle(50, getPixelCanvas); //higher the number, means less of a chance for particles to spawn
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-	}else if(imageFile == "./day/rainy-2.png" || imageFile == "./night/rainy-2.png") 
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	} else if(imageFile == "./day/rainy-3.png" || imageFile == "./night/rainy-3.png")
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	} else if(imageFile == "./day/rainy-4.png" || imageFile == "./night/rainy-4.png")
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/rainy-5.png" || imageFile == "./night/rainy-5.png")
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/rainy-6.png" || imageFile == "./night/rainy-6.png")
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/rainy-7.png" || imageFile == "./night/rainy-7.png")
-	{
-		rainParticle.setParticleVelocity(20);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/snow-1.png" || imageFile == "./night/snow-1.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-	}else if(imageFile == "./day/snow-2.png" || imageFile == "./night/snow-2.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/snow-3.png" || imageFile == "./night/snow-3.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/snow-4.png" || imageFile == "./night/snow-4.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/snow-7.png" || imageFile == "./night/snow-7.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}else if(imageFile == "./day/sleet-1.png" || imageFile == "./night/sleet-1.png")
-	{
-		snowParticle.setParticleVelocity(5);
-		rainParticle.setParticleVelocity(30);
-		rainParticle.spawnParticle(50, getPixelCanvas);
-		snowParticle.spawnParticle(150, getPixelCanvas);
-		rainParticle.updateParticles(getPixelCanvas);
-		snowParticle.updateParticles(getPixelCanvas);
-		iceParticle.freezeWaterParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);
-		
-	}
+
+			//sleet
+			
+			snowParticle.setParticleVelocity(5);
+			rainParticle.setParticleVelocity(30);
+			rainParticle.spawnParticle(precipitationIntensity, getPixelCanvas);
+			snowParticle.spawnParticle(precipitationIntensity, getPixelCanvas);
+			rainParticle.updateParticles(getPixelCanvas);
+			snowParticle.updateParticles(getPixelCanvas);
+			iceParticle.freezeWaterParticles(getPixelCanvas);
+			pixelParticle::drawParticles(getPixelCanvas);
+
+
 }
+
+void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGetPixel getPixelCanvas)
+{
+	int precipitationID;
+	int precipitationType;
+	int precipitationIntensity;
+	pixelParticle* rainParticle;
+	pixelParticle* snowParticle;
+	pixelParticle* iceParticle;
+	if (currentWeather.getPrecipImageStatus() == true)
+	{
+		for (auto i : *currentWeather.getWeatherIDArray())
+		{
+			if (i >= 300 && i <= 622)
+			{
+				precipitationID = i;
+
+			}
+		}
+		
+		//create rain/snow/ice pixelparticle instances here
+		//use a set to check whether or not the instance already exists
+		//if false, delete the instance and remove from set  
+		
+		precipitationIntensity = currentWeather.getPrecipitationIntensity(precipitationID);
+		precipitationType = currentWeather.getPrecipitationType(precipitationID);
+		auto rainColor = Color(0, 119, 190);
+		auto snowColor = Color(255, 255, 255);
+		auto iceColor = Color(63, 208, 212);
+
+		switch (precipitationType)
+		{
+
+			
+		case 1 :
+			//rain
+			//pixelParticle* rainParticle;
+			//destroy all other particle types if they exist
+			if(checkIfParticleExists("snow")) {
+				delete snowParticle;
+				removeParticleType("snow");
+			}
+			if (checkIfParticleExists("ice")) {
+				delete iceParticle;
+				removeParticleType("ice");
+
+			}
+			if(checkIfParticleExists("rain") == false)
+			{
+				//destroy all other particle types if they exist
+
+				rainParticle = new pixelParticle(55, "rain", rainColor);
+				addParticleType("rain");
+				drawPrecipitation(getPixelCanvas, *rainParticle, precipitationType, precipitationIntensity);
+			}
+			else
+			{
+
+				drawPrecipitation(getPixelCanvas, *rainParticle, precipitationType, precipitationIntensity);
+
+			}
+		
+			break;
+			
+		case 2:
+			
+			//snow
+			//pixelParticle* snowParticle;
+			if(checkIfParticleExists("rain")) {
+				delete rainParticle;
+				removeParticleType("rain");
+
+			}
+			if (checkIfParticleExists("ice")) {
+				delete iceParticle;
+				removeParticleType("ice");
+
+			}
+			if(checkIfParticleExists("snow") == false)
+			{
+				
+				snowParticle = new pixelParticle(10, "snow", snowColor);
+				addParticleType("snow");
+				drawPrecipitation(getPixelCanvas, *snowParticle, precipitationType, precipitationIntensity);
+			}
+			else
+			{
+				drawPrecipitation(getPixelCanvas, *snowParticle, precipitationType, precipitationIntensity);
+
+			}
+		
+			break;
+		case 3:
+			//sleet 
+			//pixelParticle* rainParticle;
+			//pixelParticle* snowParticle;
+			//pixelParticle* iceParticle;
+			if(checkIfParticleExists("rain") == false)
+			{
+				
+				rainParticle = new pixelParticle(55, "rain", rainColor);
+
+				addParticleType("rain");
+
+				
+
+			}
+		
+			if (checkIfParticleExists("snow") == false) {
+				snowParticle = new pixelParticle(10, "snow", snowColor);
+				addParticleType("snow");
+			}
+		
+			if (checkIfParticleExists("ice") == false)
+			{
+				iceParticle = new pixelParticle(0, "ice", iceColor);
+				addParticleType("ice");
+			}
+			
+			drawPrecipitation(getPixelCanvas, *rainParticle, *snowParticle, *iceParticle, precipitationIntensity);
+		
+			break;
+	
+			}
+		}
+
+	else
+	{
+		if (checkIfParticleExists("rain")) {
+			
+			delete rainParticle;
+			removeParticleType("rain");
+		}
+		if (checkIfParticleExists("snow")) {
+			
+			delete snowParticle;
+			removeParticleType("snow");
+		}
+		if (checkIfParticleExists("ice")) {
+			delete iceParticle;
+			removeParticleType("ice");
+		}
+	}
+	
+
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -469,7 +567,6 @@ int main(int argc, char* argv[])
 	bool with_outline = false;
 
 	const char* bdf_font_file = "./spleen-5x8.bdf";
-	//currentWeather.getWeatherData();
 	int currentTemp = 0;
 	int currentFeelsLikeTemp = 0;
 	int currentWindSpeed = 0;
@@ -567,25 +664,10 @@ int main(int argc, char* argv[])
 	currentWindSpeed = currentWeather.getWindSpeed();
 	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
-	auto rainColor = Color(0, 119, 190);
-	auto snowColor = Color(255, 255, 255);
-	auto iceColor = Color(63, 208, 212);
-	pixelParticle rainParticle(55, "rain", rainColor);
-	pixelParticle snowParticle(5, "snow", snowColor);
-	pixelParticle iceParticle(0, "ice", iceColor);
+	//drawPrecipitationHandler(currentWeather, getPixelCanvas); 
 
 	do
 	{
-
-		drawPrecipitation(getPixelCanvas,
-			rainParticle,
-			snowParticle,
-			iceParticle,
-			selectImagesToDraw(*currentWeather.getWeatherIDArray(),
-				*currentWeather.getTimeArray(),
-				currentWeather,
-				rng));
-		
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
 		++frame_counter;
 		offScreenCanvas->Fill(bg_color.r, bg_color.g, bg_color.b);
@@ -593,7 +675,8 @@ int main(int argc, char* argv[])
 			|| (frame_counter % (blink_on + blink_off) < static_cast<uint>(blink_on));
 
 		DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
-		
+		//drawPrecipitationHandler(currentWeather, getPixelCanvas); 
+
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
 			timeNow_image = time(nullptr);
@@ -607,6 +690,9 @@ int main(int argc, char* argv[])
 			currentWindSpeed = currentWeather.getWindSpeed();
 			currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
 		}
+		
+		drawPrecipitationHandler(currentWeather, getPixelCanvas); 
+		//std::cout << currentWeather.getPrecipImageStatus() << std::endl;
 
 		if (draw_on_frame)
 		{
