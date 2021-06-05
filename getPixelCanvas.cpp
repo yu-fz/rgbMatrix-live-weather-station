@@ -32,6 +32,12 @@ void canvasWithGetPixel::initPixelMap()
 	pixelMap = new rgb_matrix::Color [canvasHeight * canvasWidth];
 }
 
+void canvasWithGetPixel::deletePixelMap()
+{
+	delete[] pixelMap;
+}
+
+
 void canvasWithGetPixel::Fill(uint8_t red, uint8_t green, uint8_t blue)
 {
 	delegatee_->Fill(red, green, blue);

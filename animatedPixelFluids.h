@@ -11,7 +11,8 @@ class pixelParticle
 	
 	
 private:
-
+	
+	
 	int initialVelocity;
 	std::string particleStringID;
 	float deltaT = 0.05;
@@ -36,20 +37,25 @@ public:
 			rainColor = z;
 		}
 	}
+	
+	~pixelParticle()
+	{
+	}
 
-	void spawnParticle(int intensity, canvasWithGetPixel Canvas);
+	void spawnParticle(int intensity, canvasWithGetPixel *Canvas);
+	void clearParticles(canvasWithGetPixel *Canvas);
 	void setParticleVelocity(int velocity);
 	static bool checkIfPixelIsEmpty(rgb_matrix::Color Color);
-	bool checkDown(int x, int y, canvasWithGetPixel Canvas);
-	bool checkDownRight(int x, int y, canvasWithGetPixel Canvas);
-	bool checkDownLeft(int x, int y, canvasWithGetPixel Canvas);
-	bool checkRight(int x, int y, canvasWithGetPixel Canvas);
-	bool checkLeft(int x, int y, canvasWithGetPixel Canvas);
-	bool checkUp(int x, int y, canvasWithGetPixel Canvas);
+	bool checkDown(int x, int y, canvasWithGetPixel *Canvas);
+	bool checkDownRight(int x, int y, canvasWithGetPixel *Canvas);
+	bool checkDownLeft(int x, int y, canvasWithGetPixel *Canvas);
+	bool checkRight(int x, int y, canvasWithGetPixel *Canvas);
+	bool checkLeft(int x, int y, canvasWithGetPixel *Canvas);
+	bool checkUp(int x, int y, canvasWithGetPixel *Canvas);
 	bool checkIfParticleColorEquiv(rgb_matrix::Color x, rgb_matrix::Color y);
-	void freezeWaterParticles(canvasWithGetPixel Canvas);
-	static void drawParticles(canvasWithGetPixel Canvas);
-	void updateParticles(canvasWithGetPixel Canvas);
+	void freezeWaterParticles(canvasWithGetPixel *Canvas);
+	static void drawParticles(canvasWithGetPixel *Canvas);
+	void updateParticles(canvasWithGetPixel *Canvas);
 	void setParticleColor(rgb_matrix::Color Color);
 	int calculateFallDistance();
 };

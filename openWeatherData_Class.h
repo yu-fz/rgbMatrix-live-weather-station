@@ -1,18 +1,16 @@
 #pragma once
-
 #include "weatherAPIOptionSetup.h"
 #include "imageViewerHelperFunctions.h"
-#include <cpprest/http_client.h>
+#include <sstream>
+#include <iostream>
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Infos.hpp>
+#include <nlohmann/json.hpp>
+#include <curlpp/Options.hpp>
 #include <vector>
 #include <unistd.h>
 #include <sys/time.h>
-
-//web stuff for API requests
-using namespace utility; // Common utilities like string conversions
-using namespace web; // Common features like URIs.
-using namespace http; // Common HTTP functionality
-using namespace client; // HTTP client features
-using namespace concurrency::streams; // Asynchronous streams
 
 //std cpp stuff
 using std::vector;
@@ -29,9 +27,12 @@ tmillis_t GetTimeInMillis();
 class requestCurrentWeather
 {
 private:
-	json::value openWeatherJSONResponse;
+	
 	// Create http_client to send the request.
-	string_t apiKey; //apiKey
+	//http_client client; 
+	//uri_builder builder;
+	//json::value openWeatherJSONResponse;
+	string_t apiKey ;  //apiKey
 	string_t getRequestTempUnits;
 	string_t location;
 	int currentTemperature;
@@ -54,12 +55,14 @@ private:
 	
 	vector<string> imageRenderList;
 	
-	bool precipStatus;
+	bool precipStatus = false;
 	
 	bool* precipStatusRef = &precipStatus;
 
 public:
-
+	
+	//requestCurrentWeather();
+	
 	int getWeatherData();
 
 
@@ -110,4 +113,5 @@ public:
 	
 	bool getPrecipImageStatus();
 	void setPrecipImageStatus(bool status);
+
 };

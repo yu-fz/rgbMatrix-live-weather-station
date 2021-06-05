@@ -7,7 +7,7 @@ void pixelParticle::setParticleVelocity(int velocity)
 	initialVelocity = velocity;
 }
 
-void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
+void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel *Canvas)
 {
 	//later, make intensity a scale from 1-10 
 	
@@ -28,9 +28,11 @@ void pixelParticle::spawnParticle(int intensity, canvasWithGetPixel Canvas)
 		//do RNG here
 		randNum = distr(gen);
 		randInt = randNum;
+
+			
 		if (randNum <= 10)
 		{
-			Canvas.getPixelMap()[x] = particleColor;
+			Canvas->getPixelMap()[x] = particleColor;
 		}
 	}
 }
@@ -49,19 +51,22 @@ int pixelParticle::calculateFallDistance()
 	return 0;
 }
 
-void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
+
+
+
+void pixelParticle::updateParticles(canvasWithGetPixel *Canvas)
 {
 	//time_t seed = time(nullptr); // obtain a random number from hardware
 	std::random_device seed;
 	std::mt19937 gen(seed()); // seed the generator
-	std::uniform_int_distribution<> distr(1, 500); // randomly generates numbers from 1 to 250 
+	std::uniform_int_distribution<> distr(1, 5000); // randomly generates numbers from 1 to 500
 	int randNum;
 	//loop through all pixels back to front, update pixel location if it is an active particle
-	for (int y = Canvas.getHeight() - 1; y >= 0; y--)
+	for (int y = Canvas->getHeight() - 1; y >= 0; y--)
 	{
-		for (int x = Canvas.getWidth() - 1; x >= 0; x--)
+		for (int x = Canvas->getWidth() - 1; x >= 0; x--)
 		{
-			if ((y < Canvas.getHeight() - 1) && (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor)))
+			if ((y < Canvas->getHeight() - 1) && (checkIfParticleColorEquiv(Canvas->getPixel(x, y), particleColor)))
 				//handles falling particles
 			{
 				//check down, downLeft and downRight
@@ -71,45 +76,45 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 
 					for (int j = y; j >= 0; j--)
 					{
-						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (j * Canvas->getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[x + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
+					Canvas->getPixelMap()[x + ((y + calculateFallDistance()) * Canvas->getWidth())] = particleColor;
 				}
-				else if ((x < Canvas.getWidth()) && checkDownRight(x, y, Canvas) == false)
+				else if ((x < Canvas->getWidth()) && checkDownRight(x, y, Canvas) == false)
 				{
 					for (int j = y; j >= 0; j--)
 					{
-						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (j * Canvas->getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[(x + 1) + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
+					Canvas->getPixelMap()[(x + 1) + ((y + calculateFallDistance()) * Canvas->getWidth())] = particleColor;
 				}
 				else if ((x > 0) && checkDownLeft(x, y, Canvas) == false)
 				{
 					for (int j = y; j >= 0; j--)
 					{
-						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (j * Canvas->getWidth())] = black;
 					}
 
-					Canvas.getPixelMap()[(x - 1) + ((y + calculateFallDistance()) * Canvas.getWidth())] = particleColor;
+					Canvas->getPixelMap()[(x - 1) + ((y + calculateFallDistance()) * Canvas->getWidth())] = particleColor;
 					
 				}
 
 
-				else if ((x < Canvas.getWidth()) && (checkRight(x, y, Canvas) == false) && (particleStringID == "rain")
+				else if ((x < Canvas->getWidth()) && (checkRight(x, y, Canvas) == false) && (particleStringID == "rain")
 					&& (randInt < range / 2))
 				{
 					for (int j = y; j >= 0; j--)
 					{
-						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (j * Canvas->getWidth())] = black;
 					}
 
-					for (int k = x; k < Canvas.getWidth(); k++)
+					for (int k = x; k < Canvas->getWidth(); k++)
 					{
-						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
+						if (checkIfPixelIsEmpty(Canvas->getPixel(k, y + 1)))
 						{
-							Canvas.getPixelMap()[k + ((y + calculateFallDistance()) * Canvas.getWidth())] =
+							Canvas->getPixelMap()[k + ((y + calculateFallDistance()) * Canvas->getWidth())] =
 								particleColor;
 							break;
 						}
@@ -120,14 +125,14 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 				{
 					for (int j = y; j >= 0; j--)
 					{
-						Canvas.getPixelMap()[x + (j * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (j * Canvas->getWidth())] = black;
 					}
 
 					for (int k = x; k >= 0; k--)
 					{
-						if (checkIfPixelIsEmpty(Canvas.getPixel(k, y + 1)))
+						if (checkIfPixelIsEmpty(Canvas->getPixel(k, y + 1)))
 						{
-							Canvas.getPixelMap()[k + ((y + calculateFallDistance()) * Canvas.getWidth())] =
+							Canvas->getPixelMap()[k + ((y + calculateFallDistance()) * Canvas->getWidth())] =
 								particleColor;
 							break;
 						}
@@ -138,7 +143,7 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 			//handles evaporating particles
 			//rain, snow, ice should have different evaporating rates 
 
-			if ((checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
+			if ((checkIfParticleColorEquiv(Canvas->getPixel(x, y), particleColor))
 				&& (
 					checkUp(x, y, Canvas) == false) && (checkDown(x, y, Canvas) == true))
 			{
@@ -146,16 +151,16 @@ void pixelParticle::updateParticles(canvasWithGetPixel Canvas)
 
 				if (particleStringID == "rain")
 				{
-					if (randNum <= 12)
+					if (randNum <= 100)
 					{
-						Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (y * Canvas->getWidth())] = black;
 					}
 				}
 				else if (particleStringID == "snow")
 				{
-					if (randNum <= 5)
+					if (randNum <= 3)
 					{
-						Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = black;
+						Canvas->getPixelMap()[x + (y * Canvas->getWidth())] = black;
 					}
 				}
 			}
@@ -174,9 +179,9 @@ bool pixelParticle::checkIfPixelIsEmpty(rgb_matrix::Color Color)
 	return false;
 }
 
-bool pixelParticle::checkDown(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkDown(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x, y + 1);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x, y + 1);
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
 		return true;
@@ -195,9 +200,9 @@ bool pixelParticle::checkIfParticleColorEquiv(rgb_matrix::Color x, rgb_matrix::C
 	return false;
 }
 
-bool pixelParticle::checkDownRight(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkDownRight(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x + 1, y + 1);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x + 1, y + 1);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -207,9 +212,9 @@ bool pixelParticle::checkDownRight(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-bool pixelParticle::checkDownLeft(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkDownLeft(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x - 1, y + 1);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x - 1, y + 1);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -219,9 +224,9 @@ bool pixelParticle::checkDownLeft(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-bool pixelParticle::checkLeft(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkLeft(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x - 1, y);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x - 1, y);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -231,9 +236,9 @@ bool pixelParticle::checkLeft(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-bool pixelParticle::checkRight(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkRight(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x + 1, y);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x + 1, y);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -243,9 +248,9 @@ bool pixelParticle::checkRight(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-bool pixelParticle::checkUp(int x, int y, canvasWithGetPixel Canvas)
+bool pixelParticle::checkUp(int x, int y, canvasWithGetPixel *Canvas)
 {
-	rgb_matrix::Color pixelColor = Canvas.getPixel(x, y - 1);
+	rgb_matrix::Color pixelColor = Canvas->getPixel(x, y - 1);
 
 	if (pixelColor.r != 0 || pixelColor.g != 0 || pixelColor.b != 0)
 	{
@@ -255,56 +260,76 @@ bool pixelParticle::checkUp(int x, int y, canvasWithGetPixel Canvas)
 	return false;
 }
 
-void pixelParticle::freezeWaterParticles(canvasWithGetPixel Canvas)
+void pixelParticle::freezeWaterParticles(canvasWithGetPixel *Canvas)
 {
 	std::random_device seed;
 	std::mt19937 gen(seed()); // seed the generator
 	std::uniform_int_distribution<> distr(1, 500); // randomly generates numbers from 1 to 250
 	int randNum;
 	//double for loop through lower third of the Canvas
-	for (int y = Canvas.getHeight() - 1; y >= Canvas.getHeight() - 5; y--) //for y
+	for (int y = Canvas->getHeight() - 1; y >= Canvas->getHeight() - 5; y--) //for y
 	{
-		for (int x = 0; x < Canvas.getWidth(); x++) //for x 
+		for (int x = 0; x < Canvas->getWidth(); x++) //for x 
 		{
-			if (checkUp(x, y, Canvas) == true && checkIfPixelIsEmpty(Canvas.getPixel(x, y)) == false &&
+			if (checkUp(x, y, Canvas) == true && checkIfPixelIsEmpty(Canvas->getPixel(x, y)) == false &&
 				checkIfParticleColorEquiv(
-					Canvas.getPixel(x, y),
-					Canvas.getPixel(x, y - 1)) == false)
+					Canvas->getPixel(x, y),
+					Canvas->getPixel(x, y - 1)) == false)
 			{
 				randNum = distr(gen);
 				if (randNum < 10)
 				{
 					//rainParticle morphs into -> pixelParticle iceParticle(x,y,z); 
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = particleColor;
+					Canvas->getPixelMap()[x + (y * Canvas->getWidth())] = particleColor;
 				}
 			}
-			else if (checkIfParticleColorEquiv(Canvas.getPixel(x, y), particleColor))
+			else if (checkIfParticleColorEquiv(Canvas->getPixel(x, y), particleColor))
 			{
 				randNum = distr(gen);
 				if (randNum < 10)
 				{
-					Canvas.getPixelMap()[x + (y * Canvas.getWidth())] = rainColor;
+					Canvas->getPixelMap()[x + (y * Canvas->getWidth())] = rainColor;
 				}
 			}
 		}
 	}
 }
 
- void pixelParticle::drawParticles(canvasWithGetPixel Canvas)
+ void pixelParticle::drawParticles(canvasWithGetPixel *Canvas)
 {
 	// call setPixel in a double for loop
 
-	for (int y = 0; y < Canvas.getHeight(); y++)
+	for (int y = 0; y < Canvas->getHeight(); y++)
 	{
-		for (int x = 0; x < Canvas.getWidth(); x++)
+		for (int x = 0; x < Canvas->getWidth(); x++)
 		{
-			rgb_matrix::Color pixelColor = Canvas.getPixelMap()[x + (y * Canvas.getWidth())];
+			rgb_matrix::Color pixelColor = Canvas->getPixelMap()[x + (y * Canvas->getWidth())];
 			if (checkIfPixelIsEmpty(pixelColor) == false)
 			{
-				Canvas.SetPixel(x, y, pixelColor.r, pixelColor.g, pixelColor.b);
+				Canvas->SetPixel(x, y, pixelColor.r, pixelColor.g, pixelColor.b);
 			}
 		}
 	}
+}
+
+
+void pixelParticle::clearParticles(canvasWithGetPixel *Canvas)
+{
+	for (int y = Canvas->getHeight() - 1; y >= 0; y--)
+	{
+		for (int x = Canvas->getWidth() - 1; x >= 0; x--)
+			{
+			
+				if (checkIfParticleColorEquiv(Canvas->getPixel(x, y), particleColor))
+					{
+					
+						Canvas->getPixelMap()[x + (y * Canvas->getWidth())] = black;
+					
+					}
+	
+			}	
+	}
+	
 }
 
 void pixelParticle::setParticleColor(rgb_matrix::Color Color)

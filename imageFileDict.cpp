@@ -9,16 +9,16 @@
 vector<string> lookUpImageToDraw(vector<int>& weatherID)
 {
 	std::unordered_multimap<int, string> weatherCodeDict;
-	weatherCodeDict.insert(pair<int, string>(200, "tStorm-1"));
-	weatherCodeDict.insert(pair<int, string>(201, "tStorm-7"));
-	weatherCodeDict.insert(pair<int, string>(202, "tStorm-8"));
-	weatherCodeDict.insert(pair<int, string>(210, "tStorm-1"));
-	weatherCodeDict.insert(pair<int, string>(211, "tStorm-2"));
-	weatherCodeDict.insert(pair<int, string>(212, "tStorm-8"));
-	weatherCodeDict.insert(pair<int, string>(221, "tStorm-9"));
-	weatherCodeDict.insert(pair<int, string>(230, "tStorm-1"));
-	weatherCodeDict.insert(pair<int, string>(231, "tStorm-7"));
-	weatherCodeDict.insert(pair<int, string>(232, "tStorm-8"));
+	weatherCodeDict.insert(pair<int, string>(200, "tstorm-1"));
+	weatherCodeDict.insert(pair<int, string>(201, "tstorm-7"));
+	weatherCodeDict.insert(pair<int, string>(202, "tstorm-8"));
+	weatherCodeDict.insert(pair<int, string>(210, "tstorm-1"));
+	weatherCodeDict.insert(pair<int, string>(211, "tstorm-2"));
+	weatherCodeDict.insert(pair<int, string>(212, "tstorm-8"));
+	weatherCodeDict.insert(pair<int, string>(221, "tstorm-9"));
+	weatherCodeDict.insert(pair<int, string>(230, "tstorm-1"));
+	weatherCodeDict.insert(pair<int, string>(231, "tstorm-7"));
+	weatherCodeDict.insert(pair<int, string>(232, "tstorm-8"));
 	weatherCodeDict.insert(pair<int, string>(300, "precipitation")); // cloud-precip
 	weatherCodeDict.insert(pair<int, string>(301, "precipitation"));
 	weatherCodeDict.insert(pair<int, string>(302, "precipitation"));

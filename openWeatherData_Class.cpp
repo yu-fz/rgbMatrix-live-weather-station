@@ -1,5 +1,10 @@
 #include "openWeatherData_Class.h"
 
+//requestCurrentWeather::requestCurrentWeather(){};
+
+using json = nlohmann::json;
+//requestCurrentWeather::requestCurrentWeather():client(http_client(U("http://api.openweathermap.org/data/2.5/weather?"))) {};
+
 long long getEpochTime() //grabs the current UNIX time
 {
 	const long long timeNow = duration_cast<seconds>(system_clock::now().time_since_epoch()).count();
@@ -13,58 +18,147 @@ tmillis_t GetTimeInMillis()
 	return tp.tv_sec * 1000 + tp.tv_usec / 1000;
 }
 
-
 int requestCurrentWeather::getWeatherData()
 {
+	//cURLpp::initialize(CURL_GLOBAL_ALL);
+	
+	std::stringstream jsonResponse;
+	
+	try
+	{
+		
+		std::string baseURL = "http://api.openweathermap.org/data/2.5/weather?";
+		
+		std::string url = (baseURL).append("zip=").append(location).append("&units=").append(getRequestTempUnits).append("&appid=").append(apiKey); 
+				
+		curlpp::Easy myRequest;
+		
+		myRequest.setOpt(new curlpp::options::Url(url));
+		curlpp::options::WriteStream ws(&jsonResponse);
+		myRequest.setOpt(ws);
+
+		json weatherJSON_Response;
+			
+		myRequest.perform();
+		ws.clear();
+		int statusCode = curlpp::infos::ResponseCode::get(myRequest);
+		if (statusCode == 200)
+		{
+			//printf("Received response status code:%u\n", response.status_code());
+			weatherJSON_Response = json::parse(jsonResponse); 
+			jsonResponse.str("");
+			json weather = weatherJSON_Response.at("weather");
+			json main = weatherJSON_Response.at("main");
+			json sys = weatherJSON_Response.at("sys");
+			json wind = weatherJSON_Response.at("wind");
+			this->arrayOfWeatherIDs.clear();
+				             
+			//in the format [currentTime, sunRise, sunSet]
+		    
+			
+			for(auto i : weather[0].at("id"))
+			{
+				int weatherID = int(i);
+				//std::cout << weatherID << std::endl;
+				this->arrayOfWeatherIDs.push_back(weatherID);
+				//std::wcout << i.at(U("id")).as_integer() << "\n";
+			}
+			
+				             
+			//this->arrayOfWeatherIDs.push_back(600);
+			
+			this->currentTemperature = int(main.at("temp"));
+			this->feelsLikeTemp = int(main.at("feels_like"));
+			this->windSpeed = int(wind.at("speed"));
+			int64_t sunrise = long(sys.at("sunrise"));
+			int64_t sunset = long(sys.at("sunset"));
+			this->arrayOfTimes.clear();
+			this->arrayOfTimes.push_back(getEpochTime());
+			this->arrayOfTimes.push_back(sunrise);
+			this->arrayOfTimes.push_back(sunset);
+			this->arrayOfTimesRef = &(this->arrayOfTimes);
+			this->arrayOfWeatherIDsRef = &(this->arrayOfWeatherIDs);
+			
+			weatherJSON_Response.clear();
+			myRequest.reset();
+			//cURLpp::terminate();
+
+		}
+		
+	}
+	catch (curlpp::RuntimeError & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	catch (curlpp::LogicError & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+}
+	/*
 	try
 	{
 	
 		// Build request URI and start the request.
-		http_client client(U("http://api.openweathermap.org/data/2.5/weather?"));
-		uri_builder builder;
+		//http_client client(U("http://api.openweathermap.org/data/2.5/weather?"));
+		//uri_builder builder;
+		//json::value openWeatherJSONResponse;
+		builder.clear();
 		builder.append_query(U("zip"), location);
 		builder.append_query(U("appid"), apiKey);
 		builder.append_query(U("units"), getRequestTempUnits);
 		return client.request(methods::GET, builder.to_string())
-		             // Handle response headers arriving.
-
+		            // Handle response headers arriving.
 		             .then([&](http_response response)
 
 		             {
+			           
+	
 			             if (response.status_code() == status_codes::OK)
 			             {
 				             //printf("Received response status code:%u\n", response.status_code());
-				             openWeatherJSONResponse = response.extract_json().get();
-				             json::value weather = openWeatherJSONResponse.at(U("weather"));
-				             json::value main = openWeatherJSONResponse.at(U("main"));
-				             json::value sys = openWeatherJSONResponse.at(U("sys"));
-				             json::value wind = openWeatherJSONResponse.at(U("wind"));
-				             arrayOfWeatherIDs.clear();
+				             weatherJSON_Response = json::parse(jsonResponse);
+				             json weather = weatherJSON_Response.at("weather");
+				             json main = weatherJSON_Response.at("main");
+				             json sys = weatherJSON_Response.at("sys");
+				             json wind = weatherJSON_Response.at("wind");
+				             //openWeatherJSONResponse = response.extract_json().get();
+				             //json::value weather = openWeatherJSONResponse.at(U("weather"));
+				             //json::value main = openWeatherJSONResponse.at(U("main"));
+				             //json::value sys = openWeatherJSONResponse.at(U("sys"));
+				             //json::value wind = openWeatherJSONResponse.at(U("wind"));
+				             this->arrayOfWeatherIDs.clear();
+				             
 				             //in the format [currentTime, sunRise, sunSet]
 				            
-				             for (auto i : weather.as_array())
+				             for (auto i : weather[0])
 				             {
-					             arrayOfWeatherIDs.push_back(i.at(U("id")).as_integer());
+					             this->arrayOfWeatherIDs.push_back(int(i.at("id")));
 					             //std::wcout << i.at(U("id")).as_integer() << "\n";
 				             }
 				             
-				             //arrayOfWeatherIDs.push_back(504);
+				             
+				            // this->arrayOfWeatherIDs.push_back(741);
 
-				             currentTemperature = main.at(U("temp")).as_integer();
-				             feelsLikeTemp = main.at(U("feels_like")).as_integer();
-				             windSpeed = wind.at(U("speed")).as_integer();
+				             this->currentTemperature = main.at(U("temp")).as_integer();
+				             this->feelsLikeTemp = main.at(U("feels_like")).as_integer();
+				             this->windSpeed = wind.at(U("speed")).as_integer();
 				             int64_t sunrise = sys.at(U("sunrise")).as_number().to_int64();
 				             int64_t sunset = sys.at(U("sunset")).as_number().to_int64();
-				             arrayOfTimes.clear();
-				             arrayOfTimes.push_back(getEpochTime());
-				             arrayOfTimes.push_back(sunrise);
-				             arrayOfTimes.push_back(sunset);
-				             arrayOfTimesRef = &arrayOfTimes;
-				             arrayOfWeatherIDsRef = &arrayOfWeatherIDs;
+				             this->arrayOfTimes.clear();
+				             this->arrayOfTimes.push_back(getEpochTime());
+				             this->arrayOfTimes.push_back(sunrise);
+				             this->arrayOfTimes.push_back(sunset);
+				             this->arrayOfTimesRef = &(this->arrayOfTimes);
+				             this->arrayOfWeatherIDsRef = &(this->arrayOfWeatherIDs);
+				             
 			             }
 		             }).wait();
 	}
-
+	
+	
 		// Wait for all the outstanding I/O to complete and handle any exceptions
 
 	catch (const std::exception& e)
@@ -73,7 +167,7 @@ int requestCurrentWeather::getWeatherData()
 		//imageRenderListPush("./error_icon.png");
 	}
 }
-
+*/
 int requestCurrentWeather::getCurrentTemperature() const
 {
 	return currentTemperature;
@@ -317,19 +411,19 @@ vector<FileInfo*> requestCurrentWeather::getLastFile_Img()
 
 void requestCurrentWeather::initOpenWeatherOptions(weatherAPIOptions* initWeatherOptions)
 {
-	apiKey = initWeatherOptions->apiKey;
-	getRequestTempUnits = initWeatherOptions->getRequestTempUnits;
-	location = initWeatherOptions->location;
-	currentTemperature = initWeatherOptions->currentTemperature;
-	arrayOfWeatherIDs = initWeatherOptions->arrayOfWeatherIDs;
-	arrayOfTimes = initWeatherOptions->arrayOfTimes;
-	file_imgs = initWeatherOptions->file_imgs;
-	windSpeed = initWeatherOptions->windSpeed;
-	feelsLikeTemp = initWeatherOptions->feelsLikeTemp;
-	counter = initWeatherOptions->counter;
-	timeout = initWeatherOptions->timeout;
-	lastImageRenderedName = initWeatherOptions->lastImageRenderedName;
-	imageRenderList = initWeatherOptions->imageRenderList;
+	this->apiKey = initWeatherOptions->apiKey;
+	this->getRequestTempUnits = initWeatherOptions->getRequestTempUnits;
+	this->location = initWeatherOptions->location;
+	this->currentTemperature = initWeatherOptions->currentTemperature;
+	this->arrayOfWeatherIDs = initWeatherOptions->arrayOfWeatherIDs;
+	this->arrayOfTimes = initWeatherOptions->arrayOfTimes;
+	this->file_imgs = initWeatherOptions->file_imgs;
+	this->windSpeed = initWeatherOptions->windSpeed;
+	this->feelsLikeTemp = initWeatherOptions->feelsLikeTemp;
+	this->counter = initWeatherOptions->counter;
+	this->timeout = initWeatherOptions->timeout;
+	this->lastImageRenderedName = initWeatherOptions->lastImageRenderedName;
+	this->imageRenderList = initWeatherOptions->imageRenderList;
 }
 
 void requestCurrentWeather::setPrecipImageStatus(bool status)
@@ -343,3 +437,5 @@ bool requestCurrentWeather::getPrecipImageStatus()
 {
 	return *precipStatusRef;
 }
+
+

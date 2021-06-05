@@ -50,9 +50,17 @@ struct ImageParams
 
 struct FileInfo
 {
+	
 	ImageParams params; // Each file might have specific timing settings
 	bool is_multi_frame;
 	StreamIO* content_stream;
+	
+	FileInfo()
+	{
+		content_stream = new rgb_matrix::MemStreamIO();
+	}
+	
+	
 };
 
 void DisplayAnimation(const FileInfo* file,

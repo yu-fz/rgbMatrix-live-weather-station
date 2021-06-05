@@ -27,6 +27,8 @@
 	abstract away more settings into a configuration file 
 */
 
+//#define _CRTDBG_MAP_ALLOC
+
 
 #include <cpprest/http_client.h>
 #include <cpprest/filestream.h>
@@ -43,7 +45,12 @@
 #include <map>
 #include <string>
 #include <Magick++.h>
+#define CURL_STATICLIB
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
 
+#include <stdlib.h>
 
 #include <magick/image.h>
 #include "imageFileDictHeader.h"
@@ -55,9 +62,11 @@
 #include "animatedPixelFluids.h"
 #include "pixelParticleSet.h"
 
+
 using namespace rgb_matrix;
 using rgb_matrix::Canvas;
 using rgb_matrix::RGBMatrix;
+
 
 static void InterruptHandler(int signo)
 {
@@ -134,11 +143,12 @@ string getTemperatureToDisplay(int temp, int windSpeed, int feelsLikeTemp)
 }
 
 string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
-                          requestCurrentWeather weather, std::default_random_engine& seed)
+                          requestCurrentWeather &weather, std::default_random_engine& seed)
 //pass by reference an integer array [ [weatherCodes], [weatherID, currentTime, sunRise, sunSet, currentTemp]]
 
 {
 	//this function appends the proper directory to the image file path
+	
 	const long long currentTime = times[0];
 	const long long sunRise = times[1];
 	const long long sunSet = times[2];
@@ -158,7 +168,6 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	if (!filesToDraw.empty() && (filesToDraw != imageRenderList))
 	{
 		weather.clearImageRenderList();
-
 		for (auto i : filesToDraw)
 		{
 			//string fullImageFilePath goes here
@@ -167,24 +176,30 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 			{
 				imageFilePath = "./day/";
 				string fullImageFilePath = imageFilePath.append(i).append(".png");
-				if (std::find(imageRenderList.begin(), imageRenderList.end(), fullImageFilePath) ==
-					imageRenderList.end())
+				//if (std::find(imageRenderList.begin(), imageRenderList.end(), fullImageFilePath) ==
+				//	imageRenderList.end())
 					//only change  images in imageRenderList if there are new files to add 
-				{
+				//{
 					// it is daytime, use the daytime icon folder path
 					weather.imageRenderListPush(fullImageFilePath);
-				}
+
+				//}
 			}
 			else
 			{
 				//it is night, use nighttime icon folder path
 				imageFilePath = "./night/";
 				string fullImageFilePath = imageFilePath.append(i).append(".png");
-				if (std::find(imageRenderList.begin(), imageRenderList.end(), fullImageFilePath) ==
-					imageRenderList.end())
-				{
+
+				//std::cout << weather.getImageRenderList()[0] << std::endl;	
+				
+				//if (std::find(imageRenderList.begin(), imageRenderList.end(), fullImageFilePath) ==
+				//	imageRenderList.end())
+				//{
+
+					//std::cout << fullImageFilePath << std::endl;
 					weather.imageRenderListPush(fullImageFilePath);
-				}
+				//}
 			}
 		}
 	}
@@ -205,19 +220,26 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 
 
 	imageRenderList = weather.getImageRenderList();
+
+	
 	if (imageRenderList.size() > 1)
 	{
 		imageFileToBeRendered = imageRenderList.front();
 		std::shuffle(std::begin(imageRenderList), std::end(imageRenderList), seed);
 		imageFileToBeRendered = imageRenderList.front();
 	}
-	else
+	
+	
+	else if (imageRenderList.size() == 1)
 	{
+		//string firstImageInList = imageRenderList.front();
+		//std::cout << dickButt << std::endl;
 		imageFileToBeRendered = imageRenderList.front();
 	}
 	
 	if (imageFileToBeRendered.find("precipitation") != std::string::npos)
 	{
+		//std::cout << "precip" << std::endl;
 		weather.setPrecipImageStatus(true);
 		
 	}
@@ -229,8 +251,9 @@ string selectImagesToDraw(vector<int>& weatherID, vector<long long>& times,
 	return imageFileToBeRendered;
 }
 
-vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offScreen,
-                                            requestCurrentWeather currentWeather)
+
+vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas &offScreen,
+                                            requestCurrentWeather &currentWeather, FileInfo *imageFileInfo)
 {
 	if (currentWeather.getLastImageRendered().c_str() != imageFile.c_str())
 	{
@@ -243,8 +266,6 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 
 		filename_params[nullptr] = img_param;
 
-		const char* stream_output = nullptr;
-
 		// Prepare matrix
 
 		// These parameters are needed once we do scrolling.
@@ -255,12 +276,14 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 		std::vector<FileInfo*> file_imgs;
 
 		const char* filename = imageFile.c_str();
-		FileInfo* file_info = nullptr;
-
+		
+		//FileInfo* file_info = nullptr;
+		
 		std::string err_msg;
+		
 		std::vector<Magick::Image> image_sequence;
 		if (LoadImageAndScale(filename,
-		                      offScreen->width(),
+		                      offScreen.width(),
 		                      48,
 		                      //Canvas->height(),
 		                      fill_width,
@@ -268,35 +291,42 @@ vector<FileInfo*> prepImageFileForRendering(string imageFile, FrameCanvas* offSc
 		                      &image_sequence,
 		                      &err_msg))
 		{
-			file_info = new FileInfo();
-			file_info->params = filename_params[filename];
-			file_info->content_stream = new MemStreamIO();
-			file_info->is_multi_frame = false;
-			StreamWriter out(file_info->content_stream);
-
+	
+			//file_info = new FileInfo();
+			
+			imageFileInfo->params = filename_params[filename];
+			
+			//imageFileInfo->content_stream = new MemStreamIO();
+			
+			imageFileInfo->is_multi_frame = false;
+			
+			StreamWriter out(imageFileInfo->content_stream);
+			
 			const Magick::Image& img = image_sequence[0];
 			int64_t delay_time_us;
 
-			delay_time_us = file_info->params.wait_ms * 1000; // single image.
+			delay_time_us = imageFileInfo->params.wait_ms * 1000; // single image.
 
 			if (delay_time_us <= 0) delay_time_us = 100 * 1000; // 1/10sec
-
+			
 			StoreInStream(img,
 			              delay_time_us,
 			              do_center,
-			              offScreen,
+			              &offScreen,
 			              &out);
 		}
+		
 
-		if (file_info)
-		{
-			file_imgs.push_back(file_info);
-		}
-
+		file_imgs.push_back(imageFileInfo);
 		currentWeather.setLastFile_Img(file_imgs);
-		return file_imgs;
+		//delete file_info->content_stream;
+		//delete file_info;
+		///delete[] filename;
+		//file_imgs.clear();
+		//filename_params.clear();
+		return currentWeather.getLastFile_Img();
 	}
-
+	//delete file_info;
 	return currentWeather.getLastFile_Img();
 }
 
@@ -328,7 +358,7 @@ static bool FullSaturation(const Color& c)
 
 
 
-void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
+void setBrightness(RGBMatrix* Canvas, requestCurrentWeather &currentWeather)
 {
 	auto sunRise = static_cast<time_t>(currentWeather.getTimeArray()->at(1));
 	time_t timeNow = time(nullptr);
@@ -347,7 +377,7 @@ void setBrightness(RGBMatrix* Canvas, requestCurrentWeather currentWeather)
 	}
 }
 
-void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle particle, int precipitationType, int precipitationIntensity)
+void drawPrecipitation(canvasWithGetPixel &getPixelCanvas, pixelParticle &particle, int precipitationType, int precipitationIntensity)
 { 
 	//implement with enums 
 	//find other way to store severity besides the file directory string 
@@ -361,14 +391,14 @@ void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle particle
 			
 			particle.setParticleVelocity(40);
 		}
-		particle.spawnParticle(precipitationIntensity, getPixelCanvas);     //higher the number, means less of a chance for particles to spawn
-		particle.updateParticles(getPixelCanvas);
-		pixelParticle::drawParticles(getPixelCanvas);	
+		particle.spawnParticle(precipitationIntensity, &getPixelCanvas);     //higher the number, means less of a chance for particles to spawn
+		particle.updateParticles(&getPixelCanvas);
+		pixelParticle::drawParticles(&getPixelCanvas);	
 		
 }
 
 
-void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainParticle, pixelParticle snowParticle, pixelParticle iceParticle, int precipitationIntensity)
+void drawPrecipitation(canvasWithGetPixel &getPixelCanvas, pixelParticle &rainParticle, pixelParticle &snowParticle, pixelParticle &iceParticle, int precipitationIntensity)
 { 
 	//implement with enums 
 	//find other way to store severity besides the file directory string 
@@ -377,33 +407,50 @@ void drawPrecipitation(canvasWithGetPixel getPixelCanvas, pixelParticle rainPart
 
 			//sleet
 			
-			snowParticle.setParticleVelocity(5);
-			rainParticle.setParticleVelocity(30);
-			rainParticle.spawnParticle(precipitationIntensity, getPixelCanvas);
-			snowParticle.spawnParticle(precipitationIntensity, getPixelCanvas);
-			rainParticle.updateParticles(getPixelCanvas);
-			snowParticle.updateParticles(getPixelCanvas);
-			iceParticle.freezeWaterParticles(getPixelCanvas);
-			pixelParticle::drawParticles(getPixelCanvas);
+			snowParticle.setParticleVelocity(10);
+			rainParticle.setParticleVelocity(40);
+			
+			snowParticle.spawnParticle(70, &getPixelCanvas);
+			snowParticle.updateParticles(&getPixelCanvas);
+			rainParticle.spawnParticle(250, &getPixelCanvas);
+			rainParticle.updateParticles(&getPixelCanvas);
+			iceParticle.freezeWaterParticles(&getPixelCanvas);
+			pixelParticle::drawParticles(&getPixelCanvas);
 
 
 }
 
-void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGetPixel getPixelCanvas)
+/*
+void particleSpawner(requestCurrentWeather &currentWeather, canvasWithGetPixel &getPixelCanvas)
+{
+	
+	auto rainColor = Color(0, 119, 190);
+	auto snowColor = Color(255, 255, 255);
+	auto iceColor = Color(63, 208, 212);
+	
+	pixelParticle* rainParticle = new pixelParticle(0, "rain", rainColor);
+	pixelParticle* snowParticle = new pixelParticle(0, "snow", snowColor);
+	pixelParticle* iceParticle = new pixelParticle(0, "ice", snowColor);
+	
+
+}*/
+
+void drawPrecipitationHandler(requestCurrentWeather &currentWeather, canvasWithGetPixel &getPixelCanvas, pixelParticle &rainParticle, pixelParticle& snowParticle, pixelParticle& iceParticle)
 {
 	int precipitationID;
 	int precipitationType;
 	int precipitationIntensity;
-	pixelParticle* rainParticle;
-	pixelParticle* snowParticle;
-	pixelParticle* iceParticle;
+	
 	if (currentWeather.getPrecipImageStatus() == true)
 	{
+		
+		
+
 		for (auto i : *currentWeather.getWeatherIDArray())
 		{
 			if (i >= 300 && i <= 622)
 			{
-				precipitationID = i;
+				precipitationID = i; //precip ID used to determine intensity of particle effects
 
 			}
 		}
@@ -412,26 +459,32 @@ void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGe
 		//use a set to check whether or not the instance already exists
 		//if false, delete the instance and remove from set  
 		
-		precipitationIntensity = currentWeather.getPrecipitationIntensity(precipitationID);
+		//precipitationIntensity = currentWeather.getPrecipitationIntensity(precipitationID);
+		precipitationIntensity = 100;
 		precipitationType = currentWeather.getPrecipitationType(precipitationID);
-		auto rainColor = Color(0, 119, 190);
-		auto snowColor = Color(255, 255, 255);
-		auto iceColor = Color(63, 208, 212);
-
+		std::cout << precipitationType << std::endl;
 		switch (precipitationType)
 		{
 
-			
 		case 1 :
 			//rain
 			//pixelParticle* rainParticle;
 			//destroy all other particle types if they exist
+			//std::cout << "rain" << std::endl;
+			/*
 			if(checkIfParticleExists("snow")) {
-				delete snowParticle;
+				
+				//stop drawing and updating snow particles 
+				//delete &snowParticle;
+				snowParticle.clearParticles(&getPixelCanvas);
 				removeParticleType("snow");
 			}
 			if (checkIfParticleExists("ice")) {
-				delete iceParticle;
+				//stop drawing and updating snow particles
+				
+				
+				//delete &iceParticle;
+				iceParticle.clearParticles(&getPixelCanvas);
 				removeParticleType("ice");
 
 			}
@@ -439,16 +492,18 @@ void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGe
 			{
 				//destroy all other particle types if they exist
 
-				rainParticle = new pixelParticle(55, "rain", rainColor);
+				//pixelParticle *rainParticle = new pixelParticle(55, "rain", rainColor);
+			
+				
 				addParticleType("rain");
-				drawPrecipitation(getPixelCanvas, *rainParticle, precipitationType, precipitationIntensity);
+				drawPrecipitation(getPixelCanvas, rainParticle, precipitationType, precipitationIntensity);
 			}
 			else
 			{
+			*/
+				drawPrecipitation(getPixelCanvas, rainParticle, precipitationType, precipitationIntensity);
 
-				drawPrecipitation(getPixelCanvas, *rainParticle, precipitationType, precipitationIntensity);
-
-			}
+			//}
 		
 			break;
 			
@@ -456,28 +511,30 @@ void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGe
 			
 			//snow
 			//pixelParticle* snowParticle;
+			/*
 			if(checkIfParticleExists("rain")) {
-				delete rainParticle;
+				
+				rainParticle.clearParticles(&getPixelCanvas);
 				removeParticleType("rain");
 
 			}
 			if (checkIfParticleExists("ice")) {
-				delete iceParticle;
+				rainParticle.clearParticles(&getPixelCanvas);
 				removeParticleType("ice");
 
 			}
 			if(checkIfParticleExists("snow") == false)
 			{
 				
-				snowParticle = new pixelParticle(10, "snow", snowColor);
+				//pixelParticle* snowParticle = new pixelParticle(10, "snow", snowColor);
 				addParticleType("snow");
-				drawPrecipitation(getPixelCanvas, *snowParticle, precipitationType, precipitationIntensity);
+				drawPrecipitation(getPixelCanvas, snowParticle, precipitationType, precipitationIntensity);
 			}
 			else
-			{
-				drawPrecipitation(getPixelCanvas, *snowParticle, precipitationType, precipitationIntensity);
+			{*/
+				drawPrecipitation(getPixelCanvas, snowParticle, precipitationType, precipitationIntensity);
 
-			}
+			//}
 		
 			break;
 		case 3:
@@ -485,52 +542,47 @@ void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGe
 			//pixelParticle* rainParticle;
 			//pixelParticle* snowParticle;
 			//pixelParticle* iceParticle;
-			if(checkIfParticleExists("rain") == false)
-			{
-				
-				rainParticle = new pixelParticle(55, "rain", rainColor);
-
-				addParticleType("rain");
-
-				
-
-			}
-		
-			if (checkIfParticleExists("snow") == false) {
-				snowParticle = new pixelParticle(10, "snow", snowColor);
-				addParticleType("snow");
-			}
-		
+			/*
 			if (checkIfParticleExists("ice") == false)
 			{
-				iceParticle = new pixelParticle(0, "ice", iceColor);
+				drawPrecipitation(getPixelCanvas, rainParticle, snowParticle, iceParticle, precipitationIntensity);
 				addParticleType("ice");
 			}
+			else
+			{
+				drawPrecipitation(getPixelCanvas, rainParticle, snowParticle, iceParticle, precipitationIntensity);
+			}*/
 			
-			drawPrecipitation(getPixelCanvas, *rainParticle, *snowParticle, *iceParticle, precipitationIntensity);
+			drawPrecipitation(getPixelCanvas, rainParticle, snowParticle, iceParticle, precipitationIntensity);
 		
 			break;
 	
 			}
 		}
-
+	/*
 	else
 	{
+		
 		if (checkIfParticleExists("rain")) {
 			
-			delete rainParticle;
+			//delete &rainParticle;
+			//rainParticle.clearParticles(&getPixelCanvas);
 			removeParticleType("rain");
+			
 		}
 		if (checkIfParticleExists("snow")) {
 			
-			delete snowParticle;
+			snowParticle.clearParticles(&getPixelCanvas);
 			removeParticleType("snow");
+			
 		}
 		if (checkIfParticleExists("ice")) {
-			delete iceParticle;
+			
+			iceParticle.clearParticles(&getPixelCanvas);
 			removeParticleType("ice");
+			
 		}
-	}
+	}*/
 	
 
 }
@@ -538,17 +590,21 @@ void drawPrecipitationHandler(requestCurrentWeather currentWeather, canvasWithGe
 
 int main(int argc, char* argv[])
 {
+		
 	Magick::InitializeMagick(*argv);
-
+	cURLpp::initialize();
 	RGBMatrix::Options canvasOptions;
 	RuntimeOptions runtimeOptions;
 	
-	requestCurrentWeather currentWeather;
+	requestCurrentWeather* currentWeather = new requestCurrentWeather();
 
 	weatherAPIOptions* initWeatherOptions = new weatherAPIOptions();
+	
+	FileInfo* fileInfo = new FileInfo();
+	
 	initWeatherAPIOptions(initWeatherOptions);
-	currentWeather.initOpenWeatherOptions(initWeatherOptions);
-	currentWeather.getWeatherData();
+	currentWeather->initOpenWeatherOptions(initWeatherOptions);
+	currentWeather->getWeatherData();
 	initCanvasOptions(canvasOptions);
 	initRuntimeOptions(runtimeOptions);
 	RGBMatrix* Canvas = RGBMatrix::CreateFromOptions(canvasOptions, runtimeOptions);
@@ -559,6 +615,7 @@ int main(int argc, char* argv[])
 	{
 		return 1;
 	}
+	
 
 	//text scroller options 
 	Color color(3, 4, 94);
@@ -650,22 +707,30 @@ int main(int argc, char* argv[])
 	signal(SIGTERM, InterruptHandler);
 	signal(SIGINT, InterruptHandler);
 
-	time_t timeOut = 120;
+	time_t timeOut = 15;
 
 	time_t seed = time(nullptr); //seed RNG with current unix time to shuffle the icon vector if len > 0
 	std::mt19937 randDevice{seed};
 	auto rng = std::default_random_engine{randDevice()};
 
-	string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
-	                                      *currentWeather.getTimeArray(),
-	                                      currentWeather, rng);
-	vector<FileInfo*> file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, currentWeather);
-	currentTemp = currentWeather.getCurrentTemperature();
-	currentWindSpeed = currentWeather.getWindSpeed();
-	currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
+	string imageFile = selectImagesToDraw(*(currentWeather->getWeatherIDArray()),
+	                                      *(currentWeather->getTimeArray()),
+	                                      *currentWeather, rng);
+	//std::cout << imageFile << std::endl;
+	vector<FileInfo*> file_imgs = prepImageFileForRendering(imageFile, *offScreenCanvas, *currentWeather, fileInfo);
+	currentTemp = currentWeather->getCurrentTemperature();
+	currentWindSpeed = currentWeather->getWindSpeed();
+	currentFeelsLikeTemp = currentWeather->getFeelsLikeTemp();
 	time_t timeNow_image = time(nullptr);
-	//drawPrecipitationHandler(currentWeather, getPixelCanvas); 
-
+	
+	auto rainColor = Color(0, 119, 190);
+	auto snowColor = Color(255, 255, 255);
+	auto iceColor = Color(63, 208, 212);
+	
+	pixelParticle* rainParticle = new pixelParticle(0, "rain", rainColor);
+	pixelParticle* snowParticle = new pixelParticle(0, "snow", snowColor);
+	pixelParticle* iceParticle = new pixelParticle(0, "ice", snowColor);
+	
 	do
 	{
 		line = getTemperatureToDisplay(currentTemp, currentWindSpeed, currentFeelsLikeTemp);
@@ -675,24 +740,26 @@ int main(int argc, char* argv[])
 			|| (frame_counter % (blink_on + blink_off) < static_cast<uint>(blink_on));
 
 		DisplayAnimation(file_imgs[0], Canvas, offScreenCanvas);
-		//drawPrecipitationHandler(currentWeather, getPixelCanvas); 
+		drawPrecipitationHandler(*currentWeather, getPixelCanvas, *rainParticle, *snowParticle, *iceParticle); 
 
 		if (time(nullptr) - timeNow_image > timeOut)
 		{
+	
+			delete fileInfo->content_stream;
+			fileInfo->content_stream = new MemStreamIO();
 			timeNow_image = time(nullptr);
-			setBrightness(Canvas, currentWeather);
-			string imageFile = selectImagesToDraw(*currentWeather.getWeatherIDArray(),
-			                                      *currentWeather.getTimeArray(),
-			                                      currentWeather, rng);
-			file_imgs = prepImageFileForRendering(imageFile, offScreenCanvas, currentWeather);
-			currentWeather.getWeatherData();
-			currentTemp = currentWeather.getCurrentTemperature();
-			currentWindSpeed = currentWeather.getWindSpeed();
-			currentFeelsLikeTemp = currentWeather.getFeelsLikeTemp();
+			setBrightness(Canvas, *currentWeather);
+			string imageFile = selectImagesToDraw(*(currentWeather->getWeatherIDArray()),
+				*(currentWeather->getTimeArray()),
+				*currentWeather,
+				rng);
+			file_imgs = prepImageFileForRendering(imageFile, *offScreenCanvas, *currentWeather, fileInfo); //this line leaks memory
+			currentWeather->getWeatherData(); //leaks
+			currentTemp = currentWeather->getCurrentTemperature();
+			currentWindSpeed = currentWeather->getWindSpeed();
+			currentFeelsLikeTemp = currentWeather->getFeelsLikeTemp();
 		}
 		
-		drawPrecipitationHandler(currentWeather, getPixelCanvas); 
-		//std::cout << currentWeather.getPrecipImageStatus() << std::endl;
 
 		if (draw_on_frame)
 		{
@@ -760,8 +827,15 @@ int main(int argc, char* argv[])
 	}
 	// Animation finished. Shut down the RGB matrix.
 	Canvas->Clear();
+	cURLpp::terminate();
+	delete fileInfo;
+	delete fileInfo->content_stream;
 	delete Canvas;
+	delete currentWeather;
 	delete initWeatherOptions;
-	delete getPixelCanvas.getPixelMap();
+	delete rainParticle;
+	delete snowParticle;
+	delete iceParticle;
+	getPixelCanvas.~canvasWithGetPixel();
 	return 0;
 }

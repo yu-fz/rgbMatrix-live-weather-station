@@ -41,21 +41,26 @@
       <PreprocessorDefinitions>DEBUG=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions />
       <CLanguageStandard />
-      <AdditionalIncludeDirectories>=/usr/include/GraphicsMagick;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\fangz\vcpkg\packages\curl_x64-windows;=/usr/include/GraphicsMagick;../../RBG_matrixWeatherStation/liveWeather/weatherStation/weatherStation/include;C:/Users/fangz/AppData/Local/Continuum/anaconda3/Library/include/curl;../../vcpkg/packages/curl_x64-windows/include;../../vcpkg/packages/curlpp_x64-windows/include;../../vcpkg/buildtrees/nlohmann-json/3.9.1-74ced61d52.clean/include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <LibrarySearchDirectories>%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
-      <AdditionalLibraryNames>pthread;boost_system;crypto;GraphicsMagick++;cpprest;GraphicsMagick;%(Link.AdditionalLibraryNames)</AdditionalLibraryNames>
-      <AdditionalLinkerInputs>%(Link.AdditionalLinkerInputs)</AdditionalLinkerInputs>
+      <LibrarySearchDirectories>C:\Users\fangz\vcpkg;C:\Users\fangz\vcpkg\packages;%(Link.LibrarySearchDirectories)</LibrarySearchDirectories>
+      <AdditionalLinkerInputs>;%(Link.AdditionalLinkerInputs)</AdditionalLinkerInputs>
       <LinkerScript />
       <AdditionalOptions />
+      <VerboseMode>false</VerboseMode>
+      <AdditionalLibraryNames>pthread;GraphicsMagick++;GraphicsMagick;boost_system;crypto;curl;curlpp;%(Link.AdditionalLibraryNames)</AdditionalLibraryNames>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
       <CPPLanguageStandard>CPP11</CPPLanguageStandard>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\fangz\vcpkg\packages\curl_x64-windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <LibrarySearchDirectories>C:\Users\fangz\vcpkg;C:\Users\fangz\vcpkg\packages;</LibrarySearchDirectories>
+      <VerboseMode>false</VerboseMode>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\RBG_matrixWeatherStation\liveWeather\weatherStation\weatherStation\lib\bdf-font.cc" />

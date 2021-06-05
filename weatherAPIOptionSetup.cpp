@@ -24,9 +24,9 @@ void initWeatherAPIOptions(weatherAPIOptions* initWeatherOptions)
 	initWeatherOptions->getRequestTempUnits = units;
 	initWeatherOptions->location = location;
 	initWeatherOptions->currentTemperature = 0;
-	initWeatherOptions->arrayOfWeatherIDs = {};
-	initWeatherOptions->arrayOfTimes = {};
-	initWeatherOptions->file_imgs = {};
+	initWeatherOptions->arrayOfWeatherIDs = { };
+	initWeatherOptions->arrayOfTimes = { };
+	initWeatherOptions->file_imgs = { };
 	initWeatherOptions->windSpeed = 0;
 	initWeatherOptions->feelsLikeTemp = 0;
 	initWeatherOptions->counter = time(nullptr);
